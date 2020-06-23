@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- CSS only -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!--customised css-->
+    <link rel="stylesheet" href="../css/index.css" />
+    <!--font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!--Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <title>STAMINA</title>
+  </head>
+  <body data-spy="scroll" data-target="#myTopnav" data-offset="50">
+    <header>
+      <p style="text-align: right; margin: 0px; padding: 0px;">
+        <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+      </p>
+    </header>
+
+    <div class="topnav" id="myTopnav">
+      <a href="#" class="active"
+        >STAMINA <strong style="color: rgb(248, 90, 22);">.</strong></a
+      >
+
+      <div class="anchor">
+        <a href="#aboutus">ABOUT US</a>
+
+        <a style="cursor: pointer;" onclick="openForm()">LOGIN</a>
+        <a style="cursor: pointer;" onclick="openRForm()">REGISTER</a>
+        <a href="#blog">BLOG</a>
+        <a href="#contact">CONTACT</a>
+      </div>
+
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
+    <div class="intro" id="home">
+      <div id="intro-quotes">
+        <p>MAKE IT A</p>
+        <p>LIFESTYE, NOT A</p>
+        <p>DUTY</p>
+      </div>
+    </div>
+    <div id="board">
+      <div class="main container">
+        <div class="row">
+          <div class="col-sm">
+            <div class="post">
+              <p class="text-center">
+                <img
+                  src="../img/fast.png"
+                  width="50"
+                  height="50"
+                  alt="running"
+                />
+              </p>
+              <h3 class="text-center">Running</h3>
+              <p>Jogging or running is a popular form of physical activity.</p>
+              <p>
+                help to build strong bones, as it is a weight bearing exercise,
+                strengthen muscles, improve cardiovascular fitness, burn plenty
+                of kilojoules, help maintain a healthy weight.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="post">
+              <p class="text-center">
+                <img src="../img/gym.png" width="50" height="50" alt="GYM" />
+              </p>
+              <h3 class="text-center">Workout</h3>
+              <p>A session of vigorous physical exercise or training.</p>
+              <p>
+                Help you control your weight,Reduce your risk of heart
+                diseases,Improve your mental health and mood, Strengthen your
+                bones and muscles.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="post">
+              <p class="text-center">
+                <img src="../img/Yoga.png" width="50" height="50" alt="yoga" />
+              </p>
+              <h3 class="text-center">Yoga</h3>
+              <p>A spiritual and ascetic discipline.</p>
+              <p>
+                increased flexibility, increased muscle strength and tone,
+                improved respiration, energy and vitality, maintaining a
+                balanced metabolism, weight reduction, cardio and circulatory
+                health.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="aboutus container text-center" id="aboutus">
+      <h2 style="font-weight: bolder;">About us</h2>
+      <hr
+        style="
+          width: 15%;
+          color: rgb(248, 90, 22);
+          border: 2px solid rgb(248, 90, 22);
+          border-radius: 3px;
+          background-color: rgb(248, 90, 22);
+        "
+      />
+      <p>
+        STAMINA <strong style="color: rgb(248, 90, 22);">.</strong> is your
+        personal fitness coach.
+      </p>
+      <p>
+        STAMINA <strong style="color: rgb(248, 90, 22);">.</strong> provides
+        daily workout routines and deit plan, where you can customize your
+        schedule, The app has workouts for your abs, chest, legs, arms and butt
+        as well as full body workouts. All the workouts are designed by experts
+        with detailed video and animation guides.
+      </p>
+    </div>
+
+    <div class="register text-center">
+      <button class="button">
+        <a onclick="openRForm()" style="color: #fdfbfb;" href="#"
+          ><span>Register </span></a
+        >
+      </button>
+    </div>
+
+    <div class="blog text-center">
+      <h2 style="font-weight: bolder; padding-top: 25px;">Recent Blog</h2>
+      <hr
+        style="
+          width: 10%;
+          color: rgb(248, 90, 22);
+          border: 2px solid rgb(248, 90, 22);
+          border-radius: 3px;
+          background-color: rgb(248, 90, 22);
+        "
+      />
+      <div class="main container" id="blog">
+        <div class="row">
+          <div class="col-sm">
+            <div class="post">
+              <p class="text-center">
+                <img
+                  src="../img/fast.png"
+                  width="50"
+                  height="50"
+                  alt="running"
+                />
+              </p>
+              <h3 class="text-center">Running</h3>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="post">
+              <p class="text-center">
+                <img src="../img/gym.png" width="50" height="50" alt="GYM" />
+              </p>
+              <h3 class="text-center">Workout</h3>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="post">
+              <p class="text-center">
+                <img src="../img/Yoga.png" width="50" height="50" alt="yoga" />
+              </p>
+              <h3 class="text-center">Yoga</h3>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Login form-->
+    <div class="form-popup" id="LoginForm">
+      <form action="" method="POST" class="form-container">
+        <h3>Login</h3>
+
+        <label for="email"><b>Email</b></label>
+        <input
+          style="font-size: 13px;"
+          type="text"
+          placeholder="Enter Email"
+          name="email"
+          required
+        />
+
+        <label for="psw"><b>Password</b></label>
+        <input
+          style="font-size: 13px;"
+          type="password"
+          placeholder="Enter Password"
+          name="psw"
+          required
+        />
+
+        <button type="submit" class="btn">Login</button>
+        <button class="btn cancel" onclick="closeForm()">
+          Close
+        </button>
+        <div style="font-size: 13px;" class="signin">
+          <p>
+            Don't have an account?
+            <a style="color: rgb(78, 78, 179);" onclick="openRForm()"
+              >Register</a
+            >.
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <!--Register form-->
+    <div class="form-popup" id="RegisterForm">
+      <form action="" method="POST" class="form-container">
+        <h3>Register</h3>
+
+        <label for="name"><b>Username</b></label>
+        <input
+          style="font-size: 13px;"
+          type="text"
+          placeholder="Enter Name"
+          name="name"
+          required
+        />
+
+        <label for="email"><b>Email</b></label>
+        <input
+          style="font-size: 13px;"
+          type="text"
+          placeholder="Enter Email"
+          name="email"
+          required
+        />
+
+        <label for="psw"><b>Password</b></label>
+        <input
+          style="font-size: 13px;"
+          type="password"
+          placeholder="Enter Password"
+          name="password"
+          required
+        />
+        <label for="psw"><b>Repeat Password</b></label>
+        <input
+          style="font-size: 13px;"
+          type="password"
+          placeholder="Repeat Password"
+          name="psw"
+          required
+        />
+
+        <button type="submit" class="btn">Register</button>
+        <button class="btn cancel" onclick="closeRForm()">
+          Close
+        </button>
+        <div style="font-size: 13px;" class="signin">
+          <p>
+            Already have an account?
+            <a style="color: rgb(78, 78, 179);" onclick="openForm()">Login</a>.
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Site footer -->
+    <footer class="site-footer" id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>About</h6>
+            <p class="text-justify">
+              STAMINA
+              <strong style="color: rgb(248, 90, 22);">.</strong> provides daily
+              workout routines and deit plan, where you can customize your
+              schedule, The app has workouts for your abs, chest, legs, arms and
+              butt as well as full body workouts. All the workouts are designed
+              by experts with detailed video and animation guides.
+            </p>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Categories</h6>
+            <ul class="footer-links">
+              <li><a href="">Home Workout</a></li>
+              <li>
+                <a href="">Weight-Lifting</a>
+              </li>
+              <li>
+                <a href="">Gym</a>
+              </li>
+              <li>
+                <a href="">Running</a>
+              </li>
+              <li>
+                <a href="">Yoga</a>
+              </li>
+              <li>
+                <a href="">Meditation</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href="">About Us</a></li>
+              <li><a href="">Sign In</a></li>
+              <li><a href="">Register</a></li>
+              <li>
+                <a href="">Blog</a>
+              </li>
+              <li><a href="">Contact </a></li>
+
+              <li>
+                <a href="">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">
+              Copyright &copy; 2020 All Rights Reserved by
+              <a href="#"
+                >STAMINA <strong style="color: rgb(248, 90, 22);">.</strong></a
+              >
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li>
+                <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li>
+                <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li>
+                <a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a>
+              </li>
+              <li>
+                <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!--js file-->
+    <script src="../js/index.js"></script>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
