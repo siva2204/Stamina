@@ -3,19 +3,22 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=7">
+<link rel="shortcut icon" href="logo.png" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="../css/form.css">
 <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
 </head>
+<title>STAMINA</title>
 <body>
 
-<form action="/stamina/users/login" method="post">
+<form action="/stamina/users/register" method="post">
   <div class="container">
     <h2>STAMINA <strong style="color: rgb(248, 90, 22);">.</strong></h2>
    
     <hr>
+    <%- include("./partials/msg")  %>
    
 
     <label for="name"><b>Name</b></label>

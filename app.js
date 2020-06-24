@@ -58,7 +58,7 @@ app.get("/", (req, res) => {
 
 //routes middleware
 app.use("/stamina/users", require("./routes/users"));
-
+app.use("/stamina/home", require("./routes/home"));
 const port = 3000 || process.env.port;
 app.listen(3000, () => {
   console.log(`server up and running ${port}`);
