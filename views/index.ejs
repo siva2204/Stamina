@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     />
     <!--customised css-->
-    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../stamina/css/index.css" />
     <!--font awesome-->
     <link
       rel="stylesheet"
@@ -46,8 +46,8 @@
       <div class="anchor">
         <a href="#aboutus">ABOUT US</a>
 
-        <a style="cursor: pointer;" onclick="openForm()">LOGIN</a>
-        <a style="cursor: pointer;" onclick="openRForm()">REGISTER</a>
+        <a href="/stamina/users/login">LOGIN</a>
+        <a href="/stamina/users/register">REGISTER</a>
         <a href="#blog">BLOG</a>
         <a href="#contact">CONTACT</a>
       </div>
@@ -71,7 +71,7 @@
             <div class="post">
               <p class="text-center">
                 <img
-                  src="../img/fast.png"
+                  src="../stamina/img/fast.png"
                   width="50"
                   height="50"
                   alt="running"
@@ -89,7 +89,12 @@
           <div class="col-sm">
             <div class="post">
               <p class="text-center">
-                <img src="../img/gym.png" width="50" height="50" alt="GYM" />
+                <img
+                  src="../stamina/img/gym.png"
+                  width="50"
+                  height="50"
+                  alt="GYM"
+                />
               </p>
               <h3 class="text-center">Workout</h3>
               <p>A session of vigorous physical exercise or training.</p>
@@ -103,7 +108,12 @@
           <div class="col-sm">
             <div class="post">
               <p class="text-center">
-                <img src="../img/Yoga.png" width="50" height="50" alt="yoga" />
+                <img
+                  src="../stamina/img/Yoga.png"
+                  width="50"
+                  height="50"
+                  alt="yoga"
+                />
               </p>
               <h3 class="text-center">Yoga</h3>
               <p>A spiritual and ascetic discipline.</p>
@@ -145,7 +155,7 @@
 
     <div class="register text-center">
       <button class="button">
-        <a onclick="openRForm()" style="color: #fdfbfb;" href="#"
+        <a href="/stamina/users/register" style="color: #fdfbfb;" href="#"
           ><span>Register </span></a
         >
       </button>
@@ -168,7 +178,7 @@
             <div class="post">
               <p class="text-center">
                 <img
-                  src="../img/fast.png"
+                  src="../stamina/img/fast.png"
                   width="50"
                   height="50"
                   alt="running"
@@ -182,7 +192,12 @@
           <div class="col-sm">
             <div class="post">
               <p class="text-center">
-                <img src="../img/gym.png" width="50" height="50" alt="GYM" />
+                <img
+                  src="../stamina/img/gym.png"
+                  width="50"
+                  height="50"
+                  alt="GYM"
+                />
               </p>
               <h3 class="text-center">Workout</h3>
               <p></p>
@@ -192,7 +207,12 @@
           <div class="col-sm">
             <div class="post">
               <p class="text-center">
-                <img src="../img/Yoga.png" width="50" height="50" alt="yoga" />
+                <img
+                  src="../stamina/img/Yoga.png"
+                  width="50"
+                  height="50"
+                  alt="yoga"
+                />
               </p>
               <h3 class="text-center">Yoga</h3>
               <p></p>
@@ -201,96 +221,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <!--Login form-->
-    <div class="form-popup" id="LoginForm">
-      <form action="" method="POST" class="form-container">
-        <h3>Login</h3>
-
-        <label for="email"><b>Email</b></label>
-        <input
-          style="font-size: 13px;"
-          type="text"
-          placeholder="Enter Email"
-          name="email"
-          required
-        />
-
-        <label for="psw"><b>Password</b></label>
-        <input
-          style="font-size: 13px;"
-          type="password"
-          placeholder="Enter Password"
-          name="psw"
-          required
-        />
-
-        <button type="submit" class="btn">Login</button>
-        <button class="btn cancel" onclick="closeForm()">
-          Close
-        </button>
-        <div style="font-size: 13px;" class="signin">
-          <p>
-            Don't have an account?
-            <a style="color: rgb(78, 78, 179);" onclick="openRForm()"
-              >Register</a
-            >.
-          </p>
-        </div>
-      </form>
-    </div>
-
-    <!--Register form-->
-    <div class="form-popup" id="RegisterForm">
-      <form action="" method="POST" class="form-container">
-        <h3>Register</h3>
-
-        <label for="name"><b>Username</b></label>
-        <input
-          style="font-size: 13px;"
-          type="text"
-          placeholder="Enter Name"
-          name="name"
-          required
-        />
-
-        <label for="email"><b>Email</b></label>
-        <input
-          style="font-size: 13px;"
-          type="text"
-          placeholder="Enter Email"
-          name="email"
-          required
-        />
-
-        <label for="psw"><b>Password</b></label>
-        <input
-          style="font-size: 13px;"
-          type="password"
-          placeholder="Enter Password"
-          name="password"
-          required
-        />
-        <label for="psw"><b>Repeat Password</b></label>
-        <input
-          style="font-size: 13px;"
-          type="password"
-          placeholder="Repeat Password"
-          name="psw"
-          required
-        />
-
-        <button type="submit" class="btn">Register</button>
-        <button class="btn cancel" onclick="closeRForm()">
-          Close
-        </button>
-        <div style="font-size: 13px;" class="signin">
-          <p>
-            Already have an account?
-            <a style="color: rgb(78, 78, 179);" onclick="openForm()">Login</a>.
-          </p>
-        </div>
-      </form>
     </div>
 
     <!-- Site footer -->
@@ -334,11 +264,11 @@
           <div class="col-xs-6 col-md-3">
             <h6>Quick Links</h6>
             <ul class="footer-links">
-              <li><a href="">About Us</a></li>
-              <li><a href="">Sign In</a></li>
-              <li><a href="">Register</a></li>
+              <li><a href="#aboutus">About Us</a></li>
+              <li><a href="/stamina/users/login">Login</a></li>
+              <li><a href="/stamina/users/register">Register</a></li>
               <li>
-                <a href="">Blog</a>
+                <a href="#blog">Blog</a>
               </li>
               <li><a href="">Contact </a></li>
 
@@ -382,7 +312,7 @@
     </footer>
 
     <!--js file-->
-    <script src="../js/index.js"></script>
+    <script src="../stamina/js/index.js"></script>
 
     <!-- JS, Popper.js, and jQuery -->
     <script

@@ -1,6 +1,10 @@
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
+const flash = require("connect-flash");
+const session = require("express-session");
+const passport = require("passport");
+
+const app = express();
 
 require("dotenv").config();
 
@@ -19,15 +23,41 @@ app.use(express.static(__dirname));
 //ejs
 app.set("view engine", "ejs");
 
+//passport
+require("./passport/passport")(passport);
+
 //bodyParser
 app.use(express.urlencoded({ extended: false }));
+
+//express - session
+app.use(
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+//passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+//connect flash
+app.use(flash());
+
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
+  next();
+});
 
 app.get("/", (req, res) => {
   res.render("index");
 });
 
 //routes middleware
-app.use("/stamina/users", require("./routes/user"));
+app.use("/stamina/users", require("./routes/users"));
 
 const port = 3000 || process.env.port;
 app.listen(3000, () => {

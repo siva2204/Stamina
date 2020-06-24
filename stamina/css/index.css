@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -393,71 +397,4 @@ header a:hover {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(248, 90, 22, 0.7);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-/* The popup form - hidden by default */
-.form-popup {
-  display: none;
-  z-index: 999;
-  position: fixed;
-  top: 100px;
-  right: 0;
-  left: 0;
-
-  margin: auto;
-  max-width: 500px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-/* Add styles to the form container */
-.form-container {
-  padding: 15px;
-  background-color: #cddcdc;
-  background-color: #ffffff;
-  font-family: "Montserrat", sans-serif;
-}
-
-/* Full-width input fields */
-.form-container input[type="text"],
-.form-container input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  margin: 0px 0 15px 0;
-  border: none;
-  font-size: 18px;
-  background: #f1f1f1;
-}
-
-/* When the inputs get focus, do something */
-.form-container input[type="text"]:focus,
-.form-container input[type="password"]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for the submit/login button */
-.form-container .btn {
-  background-color: rgb(248, 90, 22);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: #4caf50;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover,
-.open-button:hover {
-  opacity: 0.9;
 }

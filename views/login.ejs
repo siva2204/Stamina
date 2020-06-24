@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<link rel="stylesheet" type="text/css" href="../css/form.css">
+<link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+
+<form action="/stamina/users/login" method="post">
+  <div class="container">
+    <h2>STAMINA <strong style="color: rgb(248, 90, 22);">.</strong></h2>
+   
+    <hr>
+   
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" id="email" value="<%= typeof email != 'undefined' ? email : '' %>" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" id="psw" required>
+
+
+
+    <button type="submit" class="registerbtn">Login</button>
+
+      <div class="container signin">
+        <p>Don't have an account? <a href="/stamina/users/register">Register</a>.</p>
+      </div>
+  </div>
+
+</form>
+</html>
