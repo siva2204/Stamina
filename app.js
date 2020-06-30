@@ -64,6 +64,6 @@ app.get("/", (req, res) => {
 app.use("/stamina/users", require("./routes/users"));
 app.use("/stamina/home", require("./routes/home"));
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(`server up and running ${port}`);
 });

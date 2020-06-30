@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: auto;
+  position: relative;
+}
+header {
+  width: 100%;
+  height: 6px;
+  background-color: rgb(248, 90, 22);
+}
+nav {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  background-color: #ffffff;
+}
+
+nav a {
+  color: rgb(26, 26, 26);
+  display: inline-block;
+  text-align: center;
+  padding: 12px 14px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+nav a :hover {
+  color: rgb(248, 90, 22);
+}
+
+nav a i {
+  font-size: 19px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+nav a i :hover {
+  color: rgb(248, 90, 22);
+}

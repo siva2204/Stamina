@@ -9,8 +9,10 @@ const {
   ensurenotAuthenticated,
 } = require("../passport/auth");
 
+//user schema
 const User = require("../model/User");
 
+//get router
 router.get("/register", ensurenotAuthenticated, (req, res) => {
   res.render("register");
 });
@@ -19,6 +21,7 @@ router.get("/login", ensurenotAuthenticated, (req, res) => {
   res.render("login");
 });
 
+//register post router
 router.post("/register", (req, res) => {
   const { name, email, password, password2 } = req.body;
   let errors = [];
@@ -70,6 +73,7 @@ router.post("/register", (req, res) => {
   }
 });
 
+//login post router
 router.post(
   "/login",
   passport.authenticate("local", {
@@ -86,10 +90,9 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
+//email validation function block
 function ValidateEmail(mail) {
-  if (
-    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value)
-  ) {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
     return true;
   }
   // alert("You have entered an invalid email address!");
