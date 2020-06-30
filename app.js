@@ -3,8 +3,11 @@ const mongoose = require("mongoose");
 const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
+const path = require("path");
 
 const app = express();
+
+const port = 3000 || process.env.port;
 
 require("dotenv").config();
 
@@ -19,6 +22,7 @@ mongoose
 
 //static file
 app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "stamina")));
 
 //ejs
 app.set("view engine", "ejs");
@@ -59,7 +63,7 @@ app.get("/", (req, res) => {
 //routes middleware
 app.use("/stamina/users", require("./routes/users"));
 app.use("/stamina/home", require("./routes/home"));
-const port = 3000 || process.env.port;
+
 app.listen(3000, () => {
   console.log(`server up and running ${port}`);
 });
