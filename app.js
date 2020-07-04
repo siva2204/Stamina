@@ -62,7 +62,8 @@ app.get("/", (req, res) => {
 
 //routes middleware
 app.use("/stamina/users", require("./routes/users"));
-app.use("/stamina/home", require("./routes/home"));
+app.use("/stamina", require("./routes/home"));
+app.use("/stamina/gymworkout", require("./routes/gymworkout"));
 
 app.listen(port, () => {
   console.log(`server up and running ${port}`);
