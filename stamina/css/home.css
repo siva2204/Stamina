@@ -11,44 +11,10 @@ body {
   position: relative;
   overflow-x: hidden;
 }
-header {
-  width: 100%;
-  height: 6px;
-  background-color: rgb(248, 90, 22);
-}
-.nav {
-  display: block;
-  overflow: hidden;
-  width: 100%;
-  background-color: #ebedee;
-}
-hr {
-  margin-top: 50px;
-  width: 98%;
-  border: 2.5px solid rgb(248, 90, 22);
-  border-radius: 45px;
-}
-.nav a {
-  color: rgb(26, 26, 26);
-  display: inline-block;
-  text-align: center;
-  padding: 10px 8px;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: bold;
-  transition: 0.3s;
-  cursor: pointer;
-}
-.nav a i {
-  text-align: center;
-  transition: 0.3s;
-}
-.nav a :hover {
-  color: rgb(248, 90, 22);
-}
 
 .main-container {
   margin: 10px;
+  margin-top: 60px;
   font-family: "Noto Sans TC", sans-serif;
 }
 .main-container a {
@@ -96,8 +62,8 @@ hr {
 }
 
 .gymworkout {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 125px;
+  margin-bottom: 125px;
 }
 #homeworkout {
   background-image: url(../img/homeworkout.jpg);

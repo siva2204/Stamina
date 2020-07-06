@@ -42,24 +42,7 @@
     <title>STAMINA</title>
   </head>
   <body onload="myFunction()">
-    <header></header>
-
-    <div class="nav">
-      <a onclick="openNav()"><i class="fa fa-bars" aria-hidden="true"></i></a>
-      <a id="stamina" href="#" style="text-decoration: none;"
-        >STAMINA
-        <strong style="color: rgb(248, 90, 22); font-weight: 700;">.</strong></a
-      >
-      <a
-        href="/stamina/users/logout"
-        style="float: right;"
-        data-toggle="tooltip"
-        title="logout"
-        ><i class="fa fa-sign-out" aria-hidden="true"></i
-      ></a>
-    </div>
-
-    <!--side nav-->
+    <!-- nav-->
     <%- include("./partials/sidenav")%>
 
     <div class="main-container">
@@ -75,7 +58,7 @@
           <div class="bottomleft"><h4>STRETCH</h4></div>
         </a>
       </div>
-      <hr />
+
       <div class="gymworkout">
         <div class="row">
           <a id="chest" href="/stamina/gymworkout/chest" class="col-md card"
@@ -112,7 +95,6 @@
             ><div class="bottom-left"><p>SHOULDER</p></div></a
           >
         </div>
-        <hr />
       </div>
 
       <div class="row">
