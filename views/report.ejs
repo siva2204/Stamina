@@ -34,12 +34,44 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/sidenav.css" />
+    <link rel="stylesheet" href="../css/report.css" />
     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon" />
     <title>STAMINA</title>
   </head>
   <body>
     <%- include("./partials/sidenav")%>
-    <div class="main-container"></div>
+    <div class="main-container">
+      <div class="bmi">
+        <h2 id="bmihead" class="text-center">
+          <b>B</b>ody <b>M</b>ass <b>I</b>ndex
+        </h2>
+        <div class="row">
+          <div class="col-md content">
+            <form action="" method="post">
+              <label for="weight">Weight(kgs): </label>
+              <input
+                type="text"
+                placeholder="Your Weight"
+                id="weight"
+                required
+              />
+              <label for="height">Height(cms): </label>
+              <input
+                type="text"
+                placeholder="Your Height"
+                id="height"
+                required
+              />
+              <p class="text-center">
+                <input class="button btn-primary" type="submit" value="BMI" />
+                <input class="button btn-danger" type="reset" />
+              </p>
+            </form>
+          </div>
+          <div class="col-md content">GRAPH</div>
+        </div>
+      </div>
+    </div>
     <script src="../js/sidenav.js"></script>
   </body>
 </html>

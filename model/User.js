@@ -17,6 +17,10 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  BMI: {
+    type: Array,
+    default: [],
+  },
 });
 
 const User = mongoose.model("User", UserSchema);
