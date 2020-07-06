@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="../css/sidenav.css" />
     <link rel="stylesheet" href="../css/report.css" />
     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon" />
+
     <title>STAMINA</title>
   </head>
   <body>
@@ -47,11 +48,12 @@
         </h2>
         <div class="row">
           <div class="col-md content">
-            <form action="" method="post">
+            <form action="/stamina/report/bmi" method="post">
               <label for="weight">Weight(kgs): </label>
               <input
                 type="text"
                 placeholder="Your Weight"
+                name="weight"
                 id="weight"
                 required
               />
@@ -59,12 +61,29 @@
               <input
                 type="text"
                 placeholder="Your Height"
+                name="height"
                 id="height"
+                onfocusout="bmicalculator()"
                 required
               />
+              <div class="text-center">
+                <h4 id="result"></h4>
+                <p id="bmiresult"></p>
+              </div>
+
               <p class="text-center">
-                <input class="button btn-primary" type="submit" value="BMI" />
-                <input class="button btn-danger" type="reset" />
+                <input
+                  id="save"
+                  class="button btn-warning text-center"
+                  type="submit"
+                  value="Save"
+                />
+                <input
+                  id="bmi"
+                  class="button btn-primary text-center"
+                  type="button"
+                  value="BMI"
+                />
               </p>
             </form>
           </div>
@@ -73,5 +92,6 @@
       </div>
     </div>
     <script src="../js/sidenav.js"></script>
+    <script src="../js/report.js"></script>
   </body>
 </html>

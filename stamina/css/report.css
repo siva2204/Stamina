@@ -51,12 +51,21 @@ input[type="text"]:focus {
 }
 
 .button {
-  padding: 5px 10px;
+  padding: 10px 20px;
   text-align: center;
   border-radius: 3px;
   border: none;
+  font-size: 20px;
+  margin: auto;
+  width: auto;
 }
-
+b {
+  color: rgb(248, 90, 22);
+}
+#bmi,
+#save {
+  display: block;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 8px;
