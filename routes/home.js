@@ -6,16 +6,29 @@ const {
   ensureAuthenticated,
   ensurenotAuthenticated,
 } = require("../passport/auth");
+const { json } = require("express");
 
 router.get("/home", ensureAuthenticated, (req, res) => {
   res.render("home", { name: req.user.name });
 });
 
-router.get("/report", ensureAuthenticated, (req, res) => {
-  res.render("report", { user: req.user });
+router.get("/report", ensureAuthenticated, async (req, res) => {
+  try {
+    let bmiarray = req.user.BMI;
+    var bmivalue = [];
+    var dates = [];
+    bmiarray.forEach((element, i) => {
+      bmivalue.push(element.bmi);
+      dates.push(element.currentdate);
+    });
+
+    res.render("report", { dates: dates, bmivalue: bmivalue });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
-//bmi
+//bmi report
 router.post("/report/bmi", ensureAuthenticated, async (req, res) => {
   try {
     let bmireport = bmicalculator(req.body.weight, req.body.height);
@@ -23,12 +36,11 @@ router.post("/report/bmi", ensureAuthenticated, async (req, res) => {
 
     user.BMI.push({
       bmirange: bmireport[0],
-      bmi: bmireport[1],
-      currentdate: new Date(),
+      bmi: bmireport[1].toFixed(2),
+      currentdate: date(),
     });
     await user.save();
     res.redirect("/stamina/report");
-    console.log("saved");
   } catch (error) {
     console.log(error);
   }
@@ -68,12 +80,7 @@ const date = () => {
   if (mm < 10) {
     mm = "0" + mm;
   }
-  today = mm + "-" + dd + "-" + yyyy;
-  console.log(today);
-  today = mm + "/" + dd + "/" + yyyy;
-  console.log(today);
+
   today = dd + "-" + mm + "-" + yyyy;
-  console.log(today);
-  today = dd + "/" + mm + "/" + yyyy;
-  console.log(today);
+  return today;
 };

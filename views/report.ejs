@@ -47,7 +47,7 @@
           <b>B</b>ody <b>M</b>ass <b>I</b>ndex
         </h2>
         <div class="row">
-          <div class="col-md content">
+          <div class="col-lg content">
             <form action="/stamina/report/bmi" method="post">
               <label for="weight">Weight(kgs): </label>
               <input
@@ -63,9 +63,10 @@
                 placeholder="Your Height"
                 name="height"
                 id="height"
-                onfocusout="bmicalculator()"
                 required
               />
+              <!--onfocusout="bmicalculator()"-->
+
               <div class="text-center">
                 <h4 id="result"></h4>
                 <p id="bmiresult"></p>
@@ -83,15 +84,49 @@
                   class="button btn-primary text-center"
                   type="button"
                   value="BMI"
+                  onclick="bmicalculator()"
                 />
               </p>
             </form>
           </div>
-          <div class="col-md content">GRAPH</div>
+          <div class="col-lg content">
+            <canvas id="canvas"></canvas>
+          </div>
         </div>
       </div>
     </div>
+
     <script src="../js/sidenav.js"></script>
     <script src="../js/report.js"></script>
+    <script src="../node_modules/chart.js/dist/Chart.js"></script>
+    <script>
+      const ctx = document.getElementById("canvas");
+      let chart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: <%- JSON.stringify(dates) %>,
+          datasets: [
+            {
+              label: "Your BMI",
+              fill: false,
+              lineTension: 0,
+              backgroundColor: "rgb(248, 90, 22)",
+              borderColor: "#595959",
+              borderCapStyle: "round",
+              pointBackgroundColor: "rgb(248, 90, 22)",
+              borderJoinStyle: "round",
+              pointBorderColor: "#595959",
+              pointBorderWidth: "10px",
+              pointHitRadius: "5",
+              pointRadius: "7",
+              pointHoverBorderColor: "rgba(248, 90, 22,0.7)",
+              pointHoverBorderWidth: "10",
+
+              data: <%- JSON.stringify(bmivalue) %>,
+            },
+          ],
+        },
+      });
+    </script>
   </body>
 </html>
