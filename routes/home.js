@@ -8,10 +8,12 @@ const {
 } = require("../passport/auth");
 const { json } = require("express");
 
+//home page
 router.get("/home", ensureAuthenticated, (req, res) => {
   res.render("home", { name: req.user.name });
 });
 
+//report page
 router.get("/report", ensureAuthenticated, async (req, res) => {
   try {
     let bmiarray = req.user.BMI;
@@ -26,6 +28,11 @@ router.get("/report", ensureAuthenticated, async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+});
+
+//reminder page
+router.get("/reminder", ensureAuthenticated, async (req, res) => {
+  res.render("reminder", { user: req.user });
 });
 
 //bmi report
@@ -66,6 +73,7 @@ const bmicalculator = (weight, height) => {
     return ["Obesity Class III", bmi];
   }
 };
+
 //current Date
 const date = () => {
   var today = new Date();
