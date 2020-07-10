@@ -91,3 +91,22 @@ b {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(248, 90, 22, 0.7);
 }
+
+.bmichart {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 50px;
+  font-size: 16px;
+}
+
+.board {
+  padding: 0;
+  margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .bmichart {
+    width: 100%;
+    font-size: 12.5px;
+  }
+}

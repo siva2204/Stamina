@@ -46,6 +46,25 @@
         <h2 id="bmihead" class="text-center">
           <b>B</b>ody <b>M</b>ass <b>I</b>ndex
         </h2>
+        <div class="bmichart row text-white text-center">
+          <div class="col board bg-warning">
+            <strong>Underweight</strong>
+            <p>< 18.5</p>
+          </div>
+          <div class="col board bg-success">
+            <strong>Normalweight</strong>
+            <p>18.5 - 25</p>
+          </div>
+          <div class="col board" style="background-color: #ff0000;">
+            <strong>Overweight</strong>
+            <p>25 - 30</p>
+          </div>
+          <div class="col board" style="background-color: #e60000;">
+            <strong>Obese</strong>
+            <p>>30</p>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-lg content">
             <form action="/stamina/report/bmi" method="post">
