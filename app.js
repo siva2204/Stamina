@@ -12,6 +12,16 @@ const port = 3000 || process.env.port;
 
 require("dotenv").config();
 
+//web push vapid keys
+const publicVapidKey = process.env.publicVapidKey;
+const privateVapidKey = process.env.privateVapidKey;
+
+webpush.setVapidDetails(
+  "mailto:example@yourdomain.org",
+  publicVapidKey,
+  privateVapidKey
+);
+
 // DATABASE CONNECTION
 mongoose
   .connect(process.env.mongo_url, {
