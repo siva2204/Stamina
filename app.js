@@ -5,12 +5,19 @@ const session = require("express-session");
 const passport = require("passport");
 const path = require("path");
 const webpush = require("web-push");
+var cors = require("cors");
 
 const app = express();
 
 const port = 3000 || process.env.port;
 
 require("dotenv").config();
+
+app.use(cors());
+
+//bodyParser
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 //web push vapid keys
 const publicVapidKey = process.env.publicVapidKey;
@@ -41,9 +48,6 @@ app.set("view engine", "ejs");
 //passport
 require("./passport/passport")(passport);
 
-//bodyParser
-app.use(express.urlencoded({ extended: false }));
-
 //express - session
 app.use(
   session({
@@ -67,11 +71,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
 //routes middleware
+app.use("/", require("./routes/basic"));
 app.use("/stamina/users", require("./routes/users"));
 app.use("/stamina", require("./routes/home"));
 app.use("/stamina/gymworkout", require("./routes/gymworkout"));
