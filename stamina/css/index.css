@@ -92,7 +92,7 @@ header a:hover {
 
 .intro #intro-quotes {
   position: absolute;
-  top: 30%;
+  top: 20%;
   bottom: 0;
   left: 0;
   right: 0;
@@ -102,9 +102,12 @@ header a:hover {
 }
 
 #intro-quotes p {
-  font-size: 5vh;
+  font-size: 7vh;
   letter-spacing: 5px;
   font-family: "Archivo Black", "Work Sans", sans-serif;
+  background: -webkit-linear-gradient(#f2f2f2, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #board {

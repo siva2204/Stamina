@@ -86,7 +86,7 @@ header {
   display: block;
   overflow: hidden;
   width: 100%;
-  background-color: #ebedee;
+  background-color: whitesmoke;
   position: fixed;
   top: 6px;
   z-index: 51;
