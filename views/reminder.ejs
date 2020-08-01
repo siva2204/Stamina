@@ -38,9 +38,30 @@
       <div id="time-board">12:59</div>
 
       <div class="row">
-        <div class="col-md timercard">TIME ON:</div>
-        <div class="col-md timercard">TIME OFF:</div>
-        <div class="col-md timercard">ROUNDS:</div>
+        <div class="col-md timercard">
+          <button class="btnt" onclick="plustimeon()">+</button>
+          <p>
+            TIME ON: <span id="timeon-m">0</span>:<span id="timeon-s">0</span>
+          </p>
+          <button class="btnt" onclick="minustimeon()">-</button>
+        </div>
+        <div class="col-md timercard">
+          <button class="btnt">+</button>
+          <p>
+            TIME OFF:
+            <span id="timeoff-m" onclick="plustimeoff()">0</span>:<span
+              id="timeoff-s"
+              onclick="minustimeoff()"
+              >0</span
+            >
+          </p>
+          <button class="btnt">-</button>
+        </div>
+        <div class="col-md timercard">
+          <button class="btnt" onclick="plusrounds()">+</button>
+          <p>ROUNDS: <span id="rounds">0</span></p>
+          <button class="btnt" onclick="minusrounds()">-</button>
+        </div>
       </div>
     </div>
     <!-- JS, Popper.js, and jQuery -->
