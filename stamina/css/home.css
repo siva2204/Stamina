@@ -15,7 +15,7 @@ body {
 
 .main-container {
   margin: 10px;
-  margin-top: 60px;
+  margin-top: 15px;
   font-family: "Noto Sans TC", sans-serif;
 }
 .main-container a {
@@ -202,4 +202,25 @@ body {
     bottom: 0;
     opacity: 0;
   }
+}
+
+#blog1 {
+  background-image: url("../img/fitness.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: auto;
+  height: 60vh;
+}
+.blog2 {
+  background-image: url("../img/fitness1.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 60vh;
 }
