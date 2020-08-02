@@ -12,6 +12,7 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   padding: 0;
+  overflow-x: hidden;
 }
 .timer {
   margin: 75px auto 0px auto;
@@ -62,6 +63,41 @@ body {
 .btnt:hover {
   cursor: pointer;
 }
-.btnt:focus {
+button:focus {
   outline: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 25px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(248, 90, 22);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(248, 90, 22, 0.7);
+}
+
+.timer-handler button {
+  padding: 15px;
+  border: none;
+  color: rgb(248, 90, 22);
+  font-size: 30px;
+  margin: 25px 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.timer-handler button:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }

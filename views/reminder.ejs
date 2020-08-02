@@ -35,27 +35,29 @@
 
     <div class="timer">
       <h1>WORKOUT TIMER</h1>
-      <div id="time-board">12:59</div>
+      <div id="time-board">
+        <span id="minutes">00</span>:<span id="seconds">00</span>
+      </div>
+      <div class="timer-handler">
+        <button class="fa fa-pause" aria-hidden="true"></button>
+        <button class="fa fa-refresh" aria-hidden="true"></button>
+      </div>
 
       <div class="row">
         <div class="col-md timercard">
           <button class="btnt" onclick="plustimeon()">+</button>
           <p>
-            TIME ON: <span id="timeon-m">0</span>:<span id="timeon-s">0</span>
+            TIME ON: <span id="timeon-m">00</span>:<span id="timeon-s">00</span>
           </p>
           <button class="btnt" onclick="minustimeon()">-</button>
         </div>
         <div class="col-md timercard">
-          <button class="btnt">+</button>
+          <button class="btnt" onclick="plustimeoff()">+</button>
           <p>
             TIME OFF:
-            <span id="timeoff-m" onclick="plustimeoff()">0</span>:<span
-              id="timeoff-s"
-              onclick="minustimeoff()"
-              >0</span
-            >
+            <span id="timeoff-m">00</span>:<span id="timeoff-s">00</span>
           </p>
-          <button class="btnt">-</button>
+          <button class="btnt" onclick="minustimeoff()">-</button>
         </div>
         <div class="col-md timercard">
           <button class="btnt" onclick="plusrounds()">+</button>
