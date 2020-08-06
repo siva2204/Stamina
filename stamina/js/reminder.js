@@ -1,5 +1,3 @@
-var realtimer;
-var breaktimer;
 function plusrounds() {
   var rounds = document.getElementById("rounds");
   var changerounds = parseInt(rounds.innerHTML) + 1;
@@ -8,7 +6,7 @@ function plusrounds() {
 
 function minusrounds() {
   var rounds = document.getElementById("rounds");
-  if (parseInt(rounds.innerHTML) > 0) {
+  if (parseInt(rounds.innerHTML) > 1) {
     var changerounds = parseInt(rounds.innerHTML) - 1;
     rounds.innerHTML = changerounds;
   }
@@ -40,7 +38,7 @@ function plustimeon() {
 function minustimeon() {
   var minutes = parseInt(document.getElementById("timeon-m").innerHTML);
   var seconds = parseInt(document.getElementById("timeon-s").innerHTML);
-  if (seconds > 0) {
+  if (seconds >= 0) {
     seconds -= 1;
     if (seconds === -1) {
       minutes -= 1;
@@ -87,7 +85,7 @@ function plustimeoff() {
 function minustimeoff() {
   var minutes = parseInt(document.getElementById("timeoff-m").innerHTML);
   var seconds = parseInt(document.getElementById("timeoff-s").innerHTML);
-  if (seconds > 0) {
+  if (seconds >= 0) {
     seconds -= 1;
     if (seconds === -1) {
       minutes -= 1;
@@ -108,6 +106,10 @@ function minustimeoff() {
   }
 }
 
+var realtimer;
+var breaktimer;
+var state = 1;
+
 function timer() {
   const t_minutes = parseInt(document.getElementById("timeon-m").innerHTML);
   const t_seconds = parseInt(document.getElementById("timeon-s").innerHTML);
@@ -115,60 +117,83 @@ function timer() {
   const b_seconds = parseInt(document.getElementById("timeoff-s").innerHTML);
 
   var totalminutes = t_minutes;
-  var totalseconds = t_seconds;
+  var totalseconds = t_seconds + 1;
 
   var breakminutes = b_minutes;
-  var breakseconds = b_seconds;
+  var breakseconds = b_seconds + 1;
 
   var rounds = parseInt(document.getElementById("rounds").innerHTML);
 
-  console.log(totalminutes, totalseconds, breakminutes, breakseconds, rounds);
-  var breaktimer = setInterval(break_timer, 1000);
+  if (state == 1) {
+    breaktimer = setInterval(break_timer, 1000);
+    state = 0;
+  }
 
   var rb = rounds;
   var rr = rounds;
 
-  console.log("es");
-
-  //break
   function break_timer() {
-    if (breakseconds > 0 && rb > 0) {
+    if (breakminutes >= 0 && breakseconds >= 0 && rb > 0) {
       breakseconds--;
       if (breakseconds == 0 && breakminutes > 0) {
         breakminutes--;
-        breakseconds == 59;
+        breakseconds = 59;
       }
       if (breakminutes == 0 && breakseconds == 0) {
         realtimer = setInterval(real_timer, 1000);
         clearInterval(breaktimer);
         rb--;
         totalminutes = t_minutes;
-        totalseconds = t_seconds;
-
-        console.log("1");
+        totalseconds = t_seconds + 1;
       }
-      document.getElementById("minutes").innerHTML = breakminutes;
-      document.getElementById("seconds").innerHTML = breakseconds;
+      if (breakminutes >= 0 && breakminutes <= 9) {
+        document.getElementById("minutes").innerHTML = "0" + `${breakminutes}`;
+      } else {
+        document.getElementById("minutes").innerHTML = breakminutes;
+      }
+      if (breakseconds >= 0 && breakseconds <= 9) {
+        document.getElementById("seconds").innerHTML = "0" + `${breakseconds}`;
+      } else {
+        document.getElementById("seconds").innerHTML = breakseconds;
+      }
     }
   }
-  //timer
+
   function real_timer() {
-    if (totalseconds > 0 && rr > 0) {
+    if (totalminutes >= 0 && totalseconds >= 0 && rr > 0) {
       totalseconds--;
       if (totalseconds == 0 && totalminutes > 0) {
         totalminutes--;
-        totalseconds == 59;
-      }
-      if (totalseconds == 0 && totalminutes == 0) {
+        totalseconds = 59;
+      } else if (totalseconds == 0 && totalminutes == 0) {
         breaktimer = setInterval(break_timer, 1000);
         clearInterval(realtimer);
         rr--;
+        if (rr == 0) {
+          state = 1;
+        }
         breakminutes = b_minutes;
-        breakseconds = b_seconds;
-        console.log("2");
+        breakseconds = b_seconds + 1;
       }
-      document.getElementById("minutes").innerHTML = totalminutes;
-      document.getElementById("seconds").innerHTML = totalseconds;
+
+      if (totalminutes >= 0 && totalminutes <= 9) {
+        document.getElementById("minutes").innerHTML = "0" + `${totalminutes}`;
+      } else {
+        document.getElementById("minutes").innerHTML = totalminutes;
+      }
+      if (totalseconds >= 0 && totalseconds <= 9) {
+        document.getElementById("seconds").innerHTML = "0" + `${totalseconds}`;
+      } else {
+        document.getElementById("seconds").innerHTML = totalseconds;
+      }
     }
   }
+}
+
+function restart() {
+  clearInterval(breaktimer);
+  clearInterval(realtimer);
+  document.getElementById("minutes").innerHTML = "00";
+  document.getElementById("seconds").innerHTML = "00";
+  state = 1;
 }
