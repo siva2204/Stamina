@@ -39,16 +39,13 @@
         <span id="minutes">00</span>:<span id="seconds">00</span>
       </div>
       <div class="timer-handler">
-        <button
-          class="fa fa-play"
-          aria-hidden="true"
-          onclick="timer()"
-        ></button>
-        <button
-          class="fa fa-refresh"
-          aria-hidden="true"
-          onclick="restart()"
-        ></button>
+        <button onclick="timer()">
+          <span id="start-btn" class="fa fa-play" aria-hidden="true"></span>
+        </button>
+
+        <button onclick="restart()">
+          <span class="fa fa-times" aria-hidden="true"></span>
+        </button>
       </div>
 
       <div class="row">

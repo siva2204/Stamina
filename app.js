@@ -9,7 +9,7 @@ var cors = require("cors");
 
 const app = express();
 
-const port = 3000 || process.env.port;
+const port = process.env.port || 3000;
 
 require("dotenv").config();
 
@@ -35,7 +35,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("DATABASE CONNECTED"))
+  .then(() => console.log("database connected"))
   .catch((err) => console.log(err));
 
 //static file

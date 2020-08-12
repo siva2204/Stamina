@@ -39,8 +39,11 @@ function minustimeon() {
   var minutes = parseInt(document.getElementById("timeon-m").innerHTML);
   var seconds = parseInt(document.getElementById("timeon-s").innerHTML);
   if (seconds >= 0) {
-    seconds -= 1;
-    if (seconds === -1) {
+    if (seconds !== 0 || minutes !== 0) {
+      seconds -= 1;
+    }
+
+    if (seconds === -1 && minutes > 0) {
       minutes -= 1;
       seconds = 59;
     }
@@ -86,8 +89,10 @@ function minustimeoff() {
   var minutes = parseInt(document.getElementById("timeoff-m").innerHTML);
   var seconds = parseInt(document.getElementById("timeoff-s").innerHTML);
   if (seconds >= 0) {
-    seconds -= 1;
-    if (seconds === -1) {
+    if (seconds !== 0 || minutes !== 0) {
+      seconds -= 1;
+    }
+    if (seconds === -1 && minutes > 0) {
       minutes -= 1;
       seconds = 59;
     }
@@ -125,8 +130,12 @@ function timer() {
   var rounds = parseInt(document.getElementById("rounds").innerHTML);
 
   if (state == 1) {
-    breaktimer = setInterval(break_timer, 1000);
-    state = 0;
+    if (t_seconds > 0 || t_minutes > 0) {
+      breaktimer = setInterval(break_timer, 1000);
+      document.getElementById("start-btn").className =
+        "fa fa-circle-o-notch fa-spin fa-3x fa-fw";
+      state = 0;
+    }
   }
 
   var rb = rounds;
@@ -171,6 +180,7 @@ function timer() {
         rr--;
         if (rr == 0) {
           state = 1;
+          document.getElementById("start-btn").className = "fa fa-play";
         }
         breakminutes = b_minutes;
         breakseconds = b_seconds + 1;
@@ -196,4 +206,5 @@ function restart() {
   document.getElementById("minutes").innerHTML = "00";
   document.getElementById("seconds").innerHTML = "00";
   state = 1;
+  document.getElementById("start-btn").className = "fa fa-play";
 }
