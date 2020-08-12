@@ -1,3 +1,7 @@
+var button0 = new Audio("../mp3/button0.mp3");
+var timer0 = new Audio("../mp3/timer0.mp3");
+var timer1 = new Audio("../mp3/timer1.mp3");
+
 function plusrounds() {
   var rounds = document.getElementById("rounds");
   var changerounds = parseInt(rounds.innerHTML) + 1;
@@ -131,9 +135,12 @@ function timer() {
 
   if (state == 1) {
     if (t_seconds > 0 || t_minutes > 0) {
+      button0.play();
+      document.getElementById("time-board").style.borderColor = "#47d147";
       breaktimer = setInterval(break_timer, 1000);
       document.getElementById("start-btn").className =
         "fa fa-circle-o-notch fa-spin fa-3x fa-fw";
+
       state = 0;
     }
   }
@@ -149,7 +156,9 @@ function timer() {
         breakseconds = 59;
       }
       if (breakminutes == 0 && breakseconds == 0) {
+        document.getElementById("time-board").style.borderColor = "#ff1a1a";
         realtimer = setInterval(real_timer, 1000);
+        timer1.play();
         clearInterval(breaktimer);
         rb--;
         totalminutes = t_minutes;
@@ -176,11 +185,15 @@ function timer() {
         totalseconds = 59;
       } else if (totalseconds == 0 && totalminutes == 0) {
         breaktimer = setInterval(break_timer, 1000);
+        document.getElementById("time-board").style.borderColor = "#47d147";
         clearInterval(realtimer);
         rr--;
         if (rr == 0) {
           state = 1;
           document.getElementById("start-btn").className = "fa fa-play";
+          timer0.play();
+          document.getElementById("time-board").style.borderColor =
+            "rgb(248, 90, 22)";
         }
         breakminutes = b_minutes;
         breakseconds = b_seconds + 1;
@@ -201,10 +214,12 @@ function timer() {
 }
 
 function restart() {
+  button0.play();
   clearInterval(breaktimer);
   clearInterval(realtimer);
   document.getElementById("minutes").innerHTML = "00";
   document.getElementById("seconds").innerHTML = "00";
   state = 1;
   document.getElementById("start-btn").className = "fa fa-play";
+  document.getElementById("time-board").style.borderColor = "rgb(248, 90, 22)";
 }
