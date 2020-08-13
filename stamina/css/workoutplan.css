@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  overflow-x: hidden;
+}
+.top-container {
+  margin-top: 55px;
+  min-height: 400px;
+}
+.top-container .row {
+  padding: 15px 0;
+}
+
+#imgid {
+  width: 600px;
+  height: 500px;
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+
+#imgid:hover {
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#create-plan {
+  padding: 80px 15px 0px 15px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  line-height: 70px;
+}
+#create-plan h2 {
+  font-weight: 600;
+  font-size: 45px;
+}
+#create-plan p {
+  color: grey;
+}
+#create-plan a {
+  padding: 15px 25px;
+  opacity: 1;
+  font-size: 25px;
+  font-weight: 400;
+  background-color: rgb(248, 90, 22);
+  color: white;
+  transition: 0.3s;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+#create-plan a:hover {
+  opacity: 0.9;
+  color: whitesmoke;
+}
+.middle-container {
+  min-height: 50px;
+  background-color: rgba(248, 90, 22, 0.9);
+  color: whitesmoke;
+  text-align: center;
+  padding: 5px;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 25px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 25px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(248, 90, 22);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(248, 90, 22, 0.7);
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  z-index: 1000;
+}
+
+/* Add styles to the form container */
+.form-container {
+  font-family: "Noto Sans TC", sans-serif;
+  font-family: "Poppins", sans-serif;
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 10px;
+  background-color: white;
+  border: 5px solid rgb(248, 90, 22);
+  transition: all 5s;
+  font-size: 18px;
+}
+
+/* Full-width input fields */
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container select {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 10px 0;
+  border: none;
+  background: #f1f1f1;
+  font-size: 16px;
+}
+.form-container select option {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0px 10px 0px;
+  font-size: 20px;
+  background-color: white;
+}
+/* When the inputs get focus, do something */
+.form-container input[type="text"]:focus,
+.form-container input[type="number"]:focus,
+.form-container select:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 1;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: #ff1a1a;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+  opacity: 0.9;
+  color: white;
+}
+.box-container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 10px 8px;
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  padding: 10px;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+
+.box-container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.box-container h1 {
+  font-weight: 700;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+/* Top right text */
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#view-more {
+  padding: 10px 15px;
+  opacity: 1;
+  font-size: 18px;
+  background-color: rgb(248, 90, 22);
+  color: white;
+  transition: 0.3s;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+#view-more:hover {
+  opacity: 0.9;
+  color: whitesmoke;
+}

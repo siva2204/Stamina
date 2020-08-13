@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 25px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(248, 90, 22);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(248, 90, 22, 0.7);
+}
+.main-container {
+  padding: 0;
+  margin-top: 55px;
+  background-color: rgba(248, 90, 22, 0.9);
+  height: 200px;
+  background-attachment: fixed;
+  position: relative;
+  z-index: -1;
+}
+.main-container h1 {
+  text-align: center;
+  font-size: 55px;
+  font-family: "Poppins", sans-serif;
+  padding: 70px 0px;
+  color: white;
+  font-weight: 600;
+}
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+b {
+  color: white;
+  padding: 0px 25px 0px 0px;
+  font-size: 20px;
+}
+.description {
+  max-width: 650px;
+  display: block;
+  margin: -15px auto 0px auto;
+  padding: 10px;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  height: 100px;
+}
+.description p {
+  color: darkgrey;
+  font-size: 18px;
+}

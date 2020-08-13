@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../model/User.js");
+const WorkoutPlans = require("../model/workoutplan");
 
 const {
   ensureAuthenticated,
@@ -33,6 +34,50 @@ router.get("/report", ensureAuthenticated, async (req, res) => {
 //reminder page
 router.get("/reminder", ensureAuthenticated, async (req, res) => {
   res.render("reminder", { user: req.user });
+});
+
+//workoutplans
+router.get("/workoutplans", ensureAuthenticated, async (req, res) => {
+  let plans = await WorkoutPlans.find({ userid: req.user.id }).sort({
+    date: "desc",
+  });
+  res.render("workoutplans", { user: req.user, plans: plans });
+});
+
+//workout plan
+router.get("/workoutplan/:id", ensureAuthenticated, async (req, res) => {
+  let plan = await WorkoutPlans.findById(req.params.id);
+  res.render("plan", { plan: plan });
+});
+
+//deleteworkoutplan
+router.get(
+  "/workoutplans/delete/:id",
+  ensureAuthenticated,
+  async (req, res) => {
+    let id = req.params.id;
+    await WorkoutPlans.findByIdAndDelete(id);
+    res.redirect("/stamina/workoutplans");
+  }
+);
+
+//create workout plan
+router.post("/workoutplan", ensureAuthenticated, async (req, res) => {
+  try {
+    let workoutplan = new WorkoutPlans({
+      userid: req.user._id,
+      planname: req.body.planname,
+      description: req.body.description,
+      goal: req.body.goal,
+      duration: req.body.duration,
+    });
+
+    await workoutplan.save();
+    res.redirect(`/stamina/workoutplan/${workoutplan._id}`);
+  } catch (error) {
+    console.log(error);
+    res.redirect("/stamina/workoutplans");
+  }
 });
 
 //bmi report
