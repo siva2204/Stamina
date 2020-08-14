@@ -193,3 +193,8 @@ b {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
+
+.timetable{
+  max-width: 800px;
+  margin : auto auto;
+}
