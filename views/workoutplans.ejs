@@ -1,161 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/workoutplan.css" />
-    <!--font awesome-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- CSS only -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
-    <!--Google fonts-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../css/sidenav.css" />
-    <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon" />
-    <title>STAMINA</title>
-  </head>
-  <body>
-    <%- include("./partials/sidenav")%>
-    <div class="form-popup" id="myForm">
-      <form
-        action="/stamina/workoutplan"
-        method="POST"
-        class="form-container"
-        autocomplete="off"
-      >
-        <h1>Add Plan</h1>
 
-        <label for="planname"><b>Plan Name</b></label>
-        <input
-          type="text"
-          placeholder="Enter Plan Name"
-          name="planname"
-          required
-        />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/workoutplan.css" />
+  <!--font awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <!--Google fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@300&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/sidenav.css" />
+  <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon" />
+  <title>STAMINA</title>
+</head>
 
-        <label for="description"><b>Description</b></label>
-        <input
-          type="text"
-          placeholder="Description"
-          name="description"
-          required
-        />
-        <label for="email"><b>Duration</b></label>
-        <input
-          type="number"
-          placeholder="Duration in weeks"
-          name="duration"
-          min="0"
-          required
-        />
-        <label for="goal"><b>Select Goal</b></label>
-        <select id="goal" name="goal">
-          <option value="Muscle Building">Muscle Building</option>
-          <option value="Fat Loss">Fat Loss</option>
-          <option value="Mass Gain">Mass Gain</option>
-          <option value="PowerLifting">PowerLifting</option>
-          <option value="Cardio">Cardio</option>
-        </select>
+<body>
+  <%- include("./partials/sidenav")%>
+  <div class="form-popup" id="myForm">
+    <form action="/stamina/workoutplan" method="POST" class="form-container" autocomplete="off">
+      <h1>Add Plan</h1>
 
-        <button type="submit" class="btn">Create Plan</button>
-        <button type="submit" class="btn cancel" onclick="closeForm()">
-          Close
-        </button>
-      </form>
-    </div>
-    <div class="top-container">
-      <div class="row">
-        <div class="col-lg">
-          <img id="imgid" src="../img/fitness.png" alt="" />
-        </div>
-        <div class="col-lg" id="create-plan">
-          <h2>create your new plan here</h2>
-          <p>you can coustamize the plan after creating it!</p>
-          <a onclick="openForm()">create plan</a>
-        </div>
+      <label for="planname"><b>Plan Name</b></label>
+      <input type="text" placeholder="Enter Plan Name" name="planname" required />
+
+      <label for="description"><b>Description</b></label>
+      <input type="text" placeholder="Description" name="description" required />
+      <label for="email"><b>Duration</b></label>
+      <input type="number" placeholder="Duration in weeks" name="duration" min="0" required />
+      <label for="goal"><b>Select Goal</b></label>
+      <select id="goal" name="goal">
+        <option value="Muscle Building">Muscle Building</option>
+        <option value="Fat Loss">Fat Loss</option>
+        <option value="Mass Gain">Mass Gain</option>
+        <option value="PowerLifting">PowerLifting</option>
+        <option value="Cardio">Cardio</option>
+      </select>
+
+      <button type="submit" class="btn">Create Plan</button>
+      <button type="submit" class="btn cancel" onclick="closeForm()">
+        Close
+      </button>
+    </form>
+  </div>
+  <div class="top-container">
+    <div class="row">
+      <div class="col-lg">
+        <img id="imgid" src="../img/fitness.png" alt="" />
+      </div>
+      <div class="col-lg" id="create-plan">
+        <h2>create your new plan here</h2>
+        <p>you can coustamize the plan after creating it!</p>
+        <a onclick="openForm()">create plan</a>
       </div>
     </div>
-    <div class="middle-container">
-      The 40% rule is simple: When your mind is telling you that you're done,
-      that you're exhausted, that you cannot possibly go any further, you're
-      only actually 40% done. The human mind is an amazing thing. It both
-      propels us forward and holds us back.
-    </div>
-    <div class="display-container">
-      <%if(plans.length == 0){%>
-      <p style="color: grey; text-align: center;">no workout plan created!</p>
-      <%}%>
+  </div>
+  <div class="middle-container">
+    The 40% rule is simple: When your mind is telling you that you're done,
+    that you're exhausted, that you cannot possibly go any further, you're
+    only actually 40% done. The human mind is an amazing thing. It both
+    propels us forward and holds us back.
+  </div>
+  <div class="display-container">
+    <%if(plans.length == 0){%>
+    <p style="color: grey; text-align: center;">no workout plan created!</p>
+    <%}%>
       <div class="row">
         <%plans.forEach(plan => {%>
-        <div class="col-md-3">
-          <div>
-            <div class="box-container">
-              <h1 style="color: black;" class="text-center">
-                <%=plan.planname%>
-              </h1>
-              <p style="color: grey;" class="text-center">
-                <%=plan.date.toLocaleDateString()%>
-              </p>
-              <a
-                style="font-size: 30px; color: rgb(248, 90, 22); padding: 8px;"
-                class="fa fa-trash top-right"
-                aria-hidden="true"
-                href="/stamina/workoutplans/delete/<%=plan._id%>"
-              ></a>
-              <p class="text-center">
-                <a
-                  id="view-more"
-                  class="text-center"
-                  style="text-decoration: none;"
-                  href="/stamina/workoutplan/<%=plan._id%>"
-                  >View Plan</a
-                >
-              </p>
+    <div class="col-md-3">
+      <div>
+        <div class="box-container">
+          <h1 style="color: black;" class="text-center">
+            <%=plan.planname%>
+          </h1>
+          <p style="color: grey;" class="text-center">
+            <%=plan.date.toLocaleDateString()%>
+          </p>
+          <a style="font-size: 30px; color: rgb(248, 90, 22); padding: 8px;" class="fa fa-trash top-right"
+            aria-hidden="true" href="/stamina/workoutplans/delete/<%=plan._id%>"></a>
+          <p class="text-center">
+            <a id="view-more" class="text-center" style="text-decoration: none;"
+              href="/stamina/workoutplan/<%=plan._id%>">View Plan</a>
+          </p>
 
-              <div class="bottom-left">
-                <strong><%=plan.goal%></strong><span>|</span
-                ><strong><%=plan.duration%> weeks</strong>
-              </div>
-            </div>
+          <div class="bottom-left">
+            <strong><%=plan.goal%></strong><span>|</span><strong><%=plan.duration%> weeks</strong>
           </div>
         </div>
-        <%})%>
       </div>
     </div>
-    <!-- JS, Popper.js, and jQuery -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
+    <%})%>
+  </div>
+  </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
 
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../js/sidenav.js"></script>
-    <script src="../js/workoutplans.js"></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script src="../js/sidenav.js"></script>
+  <script src="../js/workoutplans.js"></script>
+</body>
+
 </html>

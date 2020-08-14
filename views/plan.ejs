@@ -23,6 +23,7 @@
   <%- include("./partials/sidenav")%>
   <div class="main-container">
     <h1><%=plan.planname%></h1>
+
     <p class="bottom-left"><b><%=plan.goal%></b></p>
     <p class="bottom-right"><b><%=plan.duration%> weeks</b></p>
   </div>
@@ -31,58 +32,58 @@
 
     <div class="progress">
       <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="40"
-        aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-        40%
+        aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
       </div>
     </div>
   </div>
+
   <p id="tip">time table will be generated after scheduling week days</p>
   <div style="margin: 0px 10px 5px 0px;" class="row">
     <%if(plan.day1.length ==0){%>
     <div class="col-lg-4">
-      <form action="/stamina/workoutplan/1/<%=plan._id%>" method="POST" class="form-container" autocomplete="off">
+      <form action="/stamina/workoutplan/1/<%= plan._id %>" method="POST" class="form-container" autocomplete="off">
         <b>Day 1</b>
         <p>Select Muscle:</p>
         <div class="row">
           <div class="col-sm-4">
-            <input type="checkbox" id="chest" name="chest" value="Chest" />
-            <label for="chest">Chest</label>
+            <input type="checkbox" id="chest1" name="chest" value="Chest" />
+            <label for="chest1">Chest</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Back" name="Back" value="Back" />
-            <label for="Back">Back</label>
+            <input type="checkbox" id="Back1" name="Back" value="Back" />
+            <label for="Back1">Back</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Legs" name="Legs" value="Legs" />
-            <label for="Legs">Legs</label>
+            <input type="checkbox" id="Legs1" name="Legs" value="Legs" />
+            <label for="Legs1">Legs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Triceps" name="Triceps" value="Triceps" />
-            <label for="Triceps">Triceps</label>
+            <input type="checkbox" id="Triceps1" name="Triceps" value="Triceps" />
+            <label for="Triceps1">Triceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Abs" name="Abs" value="Abs" />
-            <label for="Abs">Abs</label>
+            <input type="checkbox" id="Abs1" name="Abs" value="Abs" />
+            <label for="Abs1">Abs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Forearms" name="Forearms" value="forearms" />
-            <label for="Forearms">Forearms</label>
+            <input type="checkbox" id="Forearms1" name="Forearms" value="forearms" />
+            <label for="Forearms1">Forearms</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
-            <label for="Biceps">Biceps</label>
+            <input type="checkbox" id="Biceps1" name="Biceps" value="biceps" />
+            <label for="Biceps1">Biceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Shoulders" name="Shoulders" value="shoulders" />
-            <label for="Shoulders">Shoulders</label>
+            <input type="checkbox" id="Shoulders1" name="Shoulders" value="shoulders" />
+            <label for="Shoulders1">Shoulders</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
-            <label for="cardio">cardio</label>
+            <input type="checkbox" id="cardio1" name="cardio" value="Cardio" />
+            <label for="cardio1">cardio</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="rest" name="rest" value="Rest Day" />
-            <label for="rest">Rest Day</label>
+            <input type="checkbox" id="rest1" name="rest" value="Rest Day" />
+            <label for="rest1">Rest Day</label>
           </div>
         </div>
 
@@ -102,44 +103,44 @@
         <p>Select Muscle:</p>
         <div class="row">
           <div class="col-sm-4">
-            <input type="checkbox" id="chest" name="chest" value="Chest" />
-            <label for="chest">Chest</label>
+            <input type="checkbox" id="chest2" name="chest" value="Chest" />
+            <label for="chest2">Chest</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Back" name="Back" value="Back" />
-            <label for="Back">Back</label>
+            <input type="checkbox" id="Back2" name="Back" value="Back" />
+            <label for="Back2">Back</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Legs" name="Legs" value="Legs" />
-            <label for="Legs">Legs</label>
+            <input type="checkbox" id="Legs2" name="Legs" value="Legs" />
+            <label for="Legs2">Legs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Triceps" name="Triceps" value="Triceps" />
-            <label for="Triceps">Triceps</label>
+            <input type="checkbox" id="Triceps2" name="Triceps" value="Triceps" />
+            <label for="Triceps2">Triceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Abs" name="Abs" value="Abs" />
-            <label for="Abs">Abs</label>
+            <input type="checkbox" id="Abs2" name="Abs" value="Abs" />
+            <label for="Abs2">Abs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Forearms" name="Forearms" value="forearms" />
-            <label for="Forearms">Forearms</label>
+            <input type="checkbox" id="Forearms2" name="Forearms" value="forearms" />
+            <label for="Forearms2">Forearms</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
-            <label for="Biceps">Biceps</label>
+            <input type="checkbox" id="Biceps2" name="Biceps" value="biceps" />
+            <label for="Biceps2">Biceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Shoulders" name="Shoulders" value="shoulders" />
-            <label for="Shoulders">Shoulders</label>
+            <input type="checkbox" id="Shoulders2" name="Shoulders" value="shoulders" />
+            <label for="Shoulders2">Shoulders</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
-            <label for="cardio">cardio</label>
+            <input type="checkbox" id="cardio2" name="cardio" value="Cardio" />
+            <label for="cardio2">cardio</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="rest" name="rest" value="Rest Day" />
-            <label for="rest">Rest Day</label>
+            <input type="checkbox" id="rest2" name="rest" value="Rest Day" />
+            <label for="rest2">Rest Day</label>
           </div>
         </div>
 
@@ -159,44 +160,44 @@
         <p>Select Muscle:</p>
         <div class="row">
           <div class="col-sm-4">
-            <input type="checkbox" id="chest" name="chest" value="Chest" />
-            <label for="chest">Chest</label>
+            <input type="checkbox" id="chest3" name="chest" value="Chest" />
+            <label for="chest3">Chest</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Back" name="Back" value="Back" />
-            <label for="Back">Back</label>
+            <input type="checkbox" id="Back3" name="Back" value="Back" />
+            <label for="Back3">Back</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Legs" name="Legs" value="Legs" />
-            <label for="Legs">Legs</label>
+            <input type="checkbox" id="Legs3" name="Legs" value="Legs" />
+            <label for="Legs3">Legs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Triceps" name="Triceps" value="Triceps" />
-            <label for="Triceps">Triceps</label>
+            <input type="checkbox" id="Triceps3" name="Triceps" value="Triceps" />
+            <label for="Triceps3">Triceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Abs" name="Abs" value="Abs" />
-            <label for="Abs">Abs</label>
+            <input type="checkbox" id="Abs3" name="Abs" value="Abs" />
+            <label for="Abs3">Abs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Forearms" name="Forearms" value="forearms" />
-            <label for="Forearms">Forearms</label>
+            <input type="checkbox" id="Forearms3" name="Forearms" value="forearms" />
+            <label for="Forearms3">Forearms</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
-            <label for="Biceps">Biceps</label>
+            <input type="checkbox" id="Biceps3" name="Biceps" value="biceps" />
+            <label for="Biceps3">Biceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Shoulders" name="Shoulders" value="shoulders" />
-            <label for="Shoulders">Shoulders</label>
+            <input type="checkbox" id="Shoulders3" name="Shoulders" value="shoulders" />
+            <label for="Shoulders3">Shoulders</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
-            <label for="cardio">cardio</label>
+            <input type="checkbox" id="cardio3" name="cardio" value="Cardio" />
+            <label for="cardio3">cardio</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="rest" name="rest" value="Rest Day" />
-            <label for="rest">Rest Day</label>
+            <input type="checkbox" id="rest3" name="rest" value="Rest Day" />
+            <label for="rest3">Rest Day</label>
           </div>
         </div>
 
@@ -215,44 +216,44 @@
         <p>Select Muscle:</p>
         <div class="row">
           <div class="col-sm-4">
-            <input type="checkbox" id="chest" name="chest" value="Chest" />
-            <label for="chest">Chest</label>
+            <input type="checkbox" id="chest4" name="chest" value="Chest" />
+            <label for="chest4">Chest</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Back" name="Back" value="Back" />
-            <label for="Back">Back</label>
+            <input type="checkbox" id="Back4" name="Back" value="Back" />
+            <label for="Back4">Back</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Legs" name="Legs" value="Legs" />
-            <label for="Legs">Legs</label>
+            <input type="checkbox" id="Legs4" name="Legs" value="Legs" />
+            <label for="Legs4">Legs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Triceps" name="Triceps" value="Triceps" />
-            <label for="Triceps">Triceps</label>
+            <input type="checkbox" id="Triceps4" name="Triceps" value="Triceps" />
+            <label for="Triceps4">Triceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Abs" name="Abs" value="Abs" />
-            <label for="Abs">Abs</label>
+            <input type="checkbox" id="Abs4" name="Abs" value="Abs" />
+            <label for="Abs4">Abs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Forearms" name="Forearms" value="forearms" />
-            <label for="Forearms">Forearms</label>
+            <input type="checkbox" id="Forearms4" name="Forearms" value="forearms" />
+            <label for="Forearms4">Forearms</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
-            <label for="Biceps">Biceps</label>
+            <input type="checkbox" id="Biceps4" name="Biceps" value="biceps" />
+            <label for="Biceps4">Biceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Shoulders" name="Shoulders" value="shoulders" />
-            <label for="Shoulders">Shoulders</label>
+            <input type="checkbox" id="Shoulders4" name="Shoulders" value="shoulders" />
+            <label for="Shoulders4">Shoulders</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
-            <label for="cardio">cardio</label>
+            <input type="checkbox" id="cardio4" name="cardio" value="Cardio" />
+            <label for="cardio4">cardio</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="rest" name="rest" value="Rest Day" />
-            <label for="rest">Rest Day</label>
+            <input type="checkbox" id="rest4" name="rest" value="Rest Day" />
+            <label for="rest4">Rest Day</label>
           </div>
         </div>
 
@@ -271,44 +272,44 @@
         <p>Select Muscle:</p>
         <div class="row">
           <div class="col-sm-4">
-            <input type="checkbox" id="chest" name="chest" value="Chest" />
-            <label for="chest">Chest</label>
+            <input type="checkbox" id="chest5" name="chest" value="Chest" />
+            <label for="chest5">Chest</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Back" name="Back" value="Back" />
-            <label for="Back">Back</label>
+            <input type="checkbox" id="Back5" name="Back" value="Back" />
+            <label for="Back5">Back</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Legs" name="Legs" value="Legs" />
-            <label for="Legs">Legs</label>
+            <input type="checkbox" id="Legs5" name="Legs" value="Legs" />
+            <label for="Legs5">Legs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Triceps" name="Triceps" value="Triceps" />
-            <label for="Triceps">Triceps</label>
+            <input type="checkbox" id="Triceps5" name="Triceps" value="Triceps" />
+            <label for="Triceps5">Triceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Abs" name="Abs" value="Abs" />
-            <label for="Abs">Abs</label>
+            <input type="checkbox" id="Abs5" name="Abs" value="Abs" />
+            <label for="Abs5">Abs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Forearms" name="Forearms" value="forearms" />
-            <label for="Forearms">Forearms</label>
+            <input type="checkbox" id="Forearms5" name="Forearms" value="forearms" />
+            <label for="Forearms5">Forearms</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
-            <label for="Biceps">Biceps</label>
+            <input type="checkbox" id="Biceps5" name="Biceps" value="biceps" />
+            <label for="Biceps5">Biceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Shoulders" name="Shoulders" value="shoulders" />
-            <label for="Shoulders">Shoulders</label>
+            <input type="checkbox" id="Shoulders5" name="Shoulders" value="shoulders" />
+            <label for="Shoulders5">Shoulders</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
-            <label for="cardio">cardio</label>
+            <input type="checkbox" id="cardio5" name="cardio" value="Cardio" />
+            <label for="cardio5">cardio</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="rest" name="rest" value="Rest Day" />
-            <label for="rest">Rest Day</label>
+            <input type="checkbox" id="rest5" name="rest" value="Rest Day" />
+            <label for="rest5">Rest Day</label>
           </div>
         </div>
 
@@ -328,44 +329,44 @@
         <p>Select Muscle:</p>
         <div class="row">
           <div class="col-sm-4">
-            <input type="checkbox" id="chest" name="chest" value="Chest" />
-            <label for="chest">Chest</label>
+            <input type="checkbox" id="chest6" name="chest" value="Chest" />
+            <label for="chest6">Chest</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Back" name="Back" value="Back" />
-            <label for="Back">Back</label>
+            <input type="checkbox" id="Back6" name="Back" value="Back" />
+            <label for="Back6">Back</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Legs" name="Legs" value="Legs" />
-            <label for="Legs">Legs</label>
+            <input type="checkbox" id="Legs6" name="Legs" value="Legs" />
+            <label for="Legs6">Legs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Triceps" name="Triceps" value="Triceps" />
-            <label for="Triceps">Triceps</label>
+            <input type="checkbox" id="Triceps6" name="Triceps" value="Triceps" />
+            <label for="Triceps6">Triceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Abs" name="Abs" value="Abs" />
-            <label for="Abs">Abs</label>
+            <input type="checkbox" id="Abs6" name="Abs" value="Abs" />
+            <label for="Abs6">Abs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Forearms" name="Forearms" value="forearms" />
-            <label for="Forearms">Forearms</label>
+            <input type="checkbox" id="Forearms6" name="Forearms" value="forearms" />
+            <label for="Forearms6">Forearms</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
-            <label for="Biceps">Biceps</label>
+            <input type="checkbox" id="Biceps6" name="Biceps" value="biceps" />
+            <label for="Biceps6">Biceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Shoulders" name="Shoulders" value="shoulders" />
-            <label for="Shoulders">Shoulders</label>
+            <input type="checkbox" id="Shoulders6" name="Shoulders" value="shoulders" />
+            <label for="Shoulders6">Shoulders</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
-            <label for="cardio">cardio</label>
+            <input type="checkbox" id="cardio6" name="cardio" value="Cardio" />
+            <label for="cardio6">cardio</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="rest" name="rest" value="Rest Day" />
-            <label for="rest">Rest Day</label>
+            <input type="checkbox" id="rest6" name="rest" value="Rest Day" />
+            <label for="rest6">Rest Day</label>
           </div>
         </div>
 
@@ -385,44 +386,44 @@
         <p>Select Muscle:</p>
         <div class="row">
           <div class="col-sm-4">
-            <input type="checkbox" id="chest" name="chest" value="Chest" />
-            <label for="chest">Chest</label>
+            <input type="checkbox" id="chest7" name="chest" value="Chest" />
+            <label for="chest7">Chest</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Back" name="Back" value="Back" />
-            <label for="Back">Back</label>
+            <input type="checkbox" id="Back7" name="Back" value="Back" />
+            <label for="Back7">Back</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Legs" name="Legs" value="Legs" />
-            <label for="Legs">Legs</label>
+            <input type="checkbox" id="Legs7" name="Legs" value="Legs" />
+            <label for="Legs7">Legs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Triceps" name="Triceps" value="Triceps" />
-            <label for="Triceps">Triceps</label>
+            <input type="checkbox" id="Triceps7" name="Triceps" value="Triceps" />
+            <label for="Triceps7">Triceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Abs" name="Abs" value="Abs" />
-            <label for="Abs">Abs</label>
+            <input type="checkbox" id="Abs7" name="Abs" value="Abs" />
+            <label for="Abs7">Abs</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Forearms" name="Forearms" value="forearms" />
-            <label for="Forearms">Forearms</label>
+            <input type="checkbox" id="Forearms7" name="Forearms" value="forearms" />
+            <label for="Forearms7">Forearms</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
-            <label for="Biceps">Biceps</label>
+            <input type="checkbox" id="Biceps7" name="Biceps" value="biceps" />
+            <label for="Biceps7">Biceps</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="Shoulders" name="Shoulders" value="shoulders" />
-            <label for="Shoulders">Shoulders</label>
+            <input type="checkbox" id="Shoulders7" name="Shoulders" value="shoulders" />
+            <label for="Shoulders7">Shoulders</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
-            <label for="cardio">cardio</label>
+            <input type="checkbox" id="cardio7" name="cardio" value="Cardio" />
+            <label for="cardio7">cardio</label>
           </div>
           <div class="col-sm-4">
-            <input type="checkbox" id="rest" name="rest" value="Rest Day" />
-            <label for="rest">Rest Day</label>
+            <input type="checkbox" id="rest7" name="rest" value="Rest Day" />
+            <label for="rest7">Rest Day</label>
           </div>
         </div>
 
@@ -435,66 +436,139 @@
 
     <%}%>
     </div>
-    <%if(plan.day1.length > 0 && plan.day2.length > 0 &&  plan.day3.length > 0 && plan.day4.length > 0 && plan.day5.length > 0 && plan.day6.length > 0 && plan.day7.length > 0)%>
-    <%{%>
-    <div class="timetable">
-      <button class="accordion">Day 1</button>
-      <div class="panel row">
-        <div class="col-md-6">hello world!</div>
-        <div class="col-md-6"></div>
-      </div>
 
-      <button class="accordion">Day 2</button>
-      <div class="panel row">
-        <div class="col-md-6">hello world!</div>
-        <div class="col-md-6"></div>
-      </div>
+    <div id="show-timetable">
+      <div class="timetable">
+        <button class="accordion">Day 1</button>
+        <div class="panel row">
+          <div class="col-md-6 box-n">
+            <strong>Selected Muscle</strong>
+            <% for (var i =0; i <=plan.day1.length-2;  i++ ) { %>
+    <p><%=plan.day1[i]%> workout</p>
+    <% } %>
+  </div>
+  <div class="col-md-6 box-n text-center">
+    <strong>Workout & Reps</strong>
+    <p><%=plan.day1[plan.day1.length-1]%></strong></day1p>
+  </div>
+  </div>
 
-      <button class="accordion">Day 3</button>
-      <div class="panel row">
-        <div class="col-md-6">hello world!</div>
-        <div class="col-md-6"></div>
-      </div>
-      <button class="accordion">Day 4</button>
-      <div class="panel row">
-        <div class="col-md-6">hello world!</div>
-        <div class="col-md-6"></div>
-      </div>
-
-      <button class="accordion">Day 5</button>
-      <div class="panel row">
-        <div class="col-md-6">hello world!</div>
-        <div class="col-md-6"></div>
-      </div>
-
-      <button class="accordion">Day 6</button>
-      <div class="panel row">
-        <div class="col-md-6">he</div>
-        <div class="col-md-6"></div>
-      </div>
-      <button class="accordion">Day 7</button>
-      <div class="panel row">
-        <div class="col-md-6">hello world!</div>
-        <div class="col-md-6"></div>
-      </div>
+  <button class="accordion">Day 2</button>
+  <div class="panel row">
+    <div class="col-md-6 box-n">
+      <strong>Selected Muscle</strong>
+      <% for (var i =0; i <=plan.day2.length-2;  i++ ) { %>
+      <p><%=plan.day2[i]%> workout</p>
+      <% } %>
     </div>
+    <div class="col-md-6 box-n text-center">
+      <strong>Workout & Reps</strong>
+      <p><%=plan.day2[plan.day2.length-1]%></strong></p>
+    </div>
+  </div>
 
-    <%}%>
+  <button class="accordion">Day 3</button>
+  <div class="panel row">
+    <div class="col-md-6 box-n">
+      <strong>Selected Muscle</strong>
+      <% for (var i =0; i <=plan.day3.length-2;  i++ ) { %>
+      <p><%=plan.day3[i]%> workout</p>
+      <% } %>
+    </div>
+    <div class="col-md-6 box-n text-center">
+      <strong>Workout & Reps</strong>
+      <p><%=plan.day3[plan.day3.length-1]%></strong></p>
+    </div>
+  </div>
+  <button class="accordion">Day 4</button>
+  <div class="panel row">
+    <div class="col-md-6 box-n">
+      <strong>Selected Muscle</strong>
+      <% for (var i =0; i <=plan.day4.length-2;  i++ ) { %>
+      <p><%=plan.day4[i]%> workout</p>
+      <% } %>
+    </div>
+    <div class="col-md-6 box-n text-center">
+      <strong>Workout & Reps</strong>
+      <p><%=plan.day4[plan.day4.length-1]%></strong></p>
+    </div>
+  </div>
 
-    <!-- JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"></script>
+  <button class="accordion">Day 5</button>
+  <div class="panel row">
+    <div class="col-md-6 box-n">
+      <strong>Selected Muscle</strong>
+      <% for (var i =0; i <=plan.day5.length-2;  i++ ) { %>
+      <p><%=plan.day5[i]%> workout</p>
+      <% } %>
+    </div>
+    <div class="col-md-6 box-n text-center">
+      <strong>Workout & Reps</strong>
+      <p><%=plan.day5[plan.day5.length-1]%></strong></p>
+    </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"></script>
+  <button class="accordion">Day 6</button>
+  <div class="panel row">
+    <div class="col-md-6 box-n">
+      <strong>Selected Muscle</strong>
+      <% for (var i =0; i <=plan.day6.length - 2 ;  i++ ) { %>
+      <p><%=plan.day6[i]%> workout</p>
+      <% } %>
+    </div>
+    <div class="col-md-6 box-n text-center">
+      <strong>Workout & Reps</strong>
+      <p><%=plan.day6[plan.day6.length-1]%></strong></p>
+    </div>
+  </div>
+  <button class="accordion">Day 7</button>
+  <div class="panel row">
+    <div class="col-md-6 box-n">
+      <% for (var i =0; i <=plan.day7.length-2;  i++ ) { %>
+      <p><%=plan.day7[i]%> workout</p>
+      <% } %>
+    </div>
+    <div class="col-md-6 box-n text-center">
+      <strong>Workout & Reps</strong>
+      <p><%=plan.day7[plan.day7.length-1]%></strong></p>
+    </div>
+  </div>
+  </div>
+  <div class="footer">
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"></script>
-    <script src="../js/sidenav.js"></script>
-    <script src="../js/plan.js"></script>
+  </div>
+
+  </div>
+
+
+
+  <% var test = plan.day7.length %>
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script src="../js/sidenav.js"></script>
+  <script src="../js/plan.js"></script>
+  <script>
+    var show = <%= test %>;
+    // console.log(show);
+    if (show == 0) {
+      document.getElementById("show-timetable").style.display = "none"
+    } else {
+      document.getElementById("show-timetable").style.display = "block"
+
+    }
+
+  </script>
 </body>
 
 </html>
