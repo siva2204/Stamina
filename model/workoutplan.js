@@ -24,6 +24,13 @@ const planSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  day1: { type: Array, default: [] },
+  day2: { type: Array, default: [] },
+  day3: { type: Array, default: [] },
+  day4: { type: Array, default: [] },
+  day5: { type: Array, default: [] },
+  day6: { type: Array, default: [] },
+  day7: { type: Array, default: [] },
 });
 
 const workoutSchema = mongoose.model("workoutSchema", planSchema);

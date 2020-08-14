@@ -38,6 +38,7 @@
     </div>
     <div class="description">
       <p class="text-center"><%=plan.description%></p>
+
       <div class="progress">
         <div
           class="progress-bar progress-bar-danger progress-bar-striped active"
@@ -51,6 +52,626 @@
         </div>
       </div>
     </div>
+    <p id="tip">time table will be generated after scheduling week days</p>
+    <div style="margin: 0px 10px 5px 0px;" class="row">
+      <%if(plan.day1.length ==0){%>
+      <div class="col-lg-4">
+        <form
+          action="/stamina/workoutplan/1/<%=plan._id%>"
+          method="POST"
+          class="form-container"
+          autocomplete="off"
+        >
+          <b>Day 1</b>
+          <p>Select Muscle:</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <input type="checkbox" id="chest" name="chest" value="Chest" />
+              <label for="chest">Chest</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Back" name="Back" value="Back" />
+              <label for="Back">Back</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Legs" name="Legs" value="Legs" />
+              <label for="Legs">Legs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Triceps"
+                name="Triceps"
+                value="Triceps"
+              />
+              <label for="Triceps">Triceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Abs" name="Abs" value="Abs" />
+              <label for="Abs">Abs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Forearms"
+                name="Forearms"
+                value="forearms"
+              />
+              <label for="Forearms">Forearms</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
+              <label for="Biceps">Biceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Shoulders"
+                name="Shoulders"
+                value="shoulders"
+              />
+              <label for="Shoulders">Shoulders</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
+              <label for="cardio">cardio</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="rest" name="rest" value="Rest Day" />
+              <label for="rest">Rest Day</label>
+            </div>
+          </div>
+
+          <label for="description"><b>Description(workouts and reps)</b></label>
+          <textarea
+            required
+            name="description"
+            id="description"
+            cols="25"
+          ></textarea>
+
+          <button type="submit" class="btn">Save</button>
+        </form>
+      </div>
+
+      <%}%>
+      <!--------------------------------------------------------------------------------------->
+      <%if(plan.day2.length == 0){%>
+      <div class="col-lg-4">
+        <form
+          action="/stamina/workoutplan/2/<%=plan.id%>"
+          method="POST"
+          class="form-container"
+          autocomplete="off"
+        >
+          <b>Day 2</b>
+          <p>Select Muscle:</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <input type="checkbox" id="chest" name="chest" value="Chest" />
+              <label for="chest">Chest</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Back" name="Back" value="Back" />
+              <label for="Back">Back</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Legs" name="Legs" value="Legs" />
+              <label for="Legs">Legs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Triceps"
+                name="Triceps"
+                value="Triceps"
+              />
+              <label for="Triceps">Triceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Abs" name="Abs" value="Abs" />
+              <label for="Abs">Abs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Forearms"
+                name="Forearms"
+                value="forearms"
+              />
+              <label for="Forearms">Forearms</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
+              <label for="Biceps">Biceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Shoulders"
+                name="Shoulders"
+                value="shoulders"
+              />
+              <label for="Shoulders">Shoulders</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
+              <label for="cardio">cardio</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="rest" name="rest" value="Rest Day" />
+              <label for="rest">Rest Day</label>
+            </div>
+          </div>
+
+          <label for="description"><b>Description(workouts and reps)</b></label>
+          <textarea
+            required
+            name="description"
+            id="description"
+            cols="25"
+          ></textarea>
+
+          <button type="submit" class="btn">Save</button>
+        </form>
+      </div>
+
+      <%}%>
+      <!--------------------------------------------------------------------------------------->
+      <%if(plan.day3.length == 0){%>
+      <div class="col-lg-4">
+        <form
+          action="/stamina/workoutplan/3/<%=plan.id%>"
+          method="POST"
+          class="form-container"
+          autocomplete="off"
+        >
+          <b>Day 3</b>
+          <p>Select Muscle:</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <input type="checkbox" id="chest" name="chest" value="Chest" />
+              <label for="chest">Chest</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Back" name="Back" value="Back" />
+              <label for="Back">Back</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Legs" name="Legs" value="Legs" />
+              <label for="Legs">Legs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Triceps"
+                name="Triceps"
+                value="Triceps"
+              />
+              <label for="Triceps">Triceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Abs" name="Abs" value="Abs" />
+              <label for="Abs">Abs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Forearms"
+                name="Forearms"
+                value="forearms"
+              />
+              <label for="Forearms">Forearms</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
+              <label for="Biceps">Biceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Shoulders"
+                name="Shoulders"
+                value="shoulders"
+              />
+              <label for="Shoulders">Shoulders</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
+              <label for="cardio">cardio</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="rest" name="rest" value="Rest Day" />
+              <label for="rest">Rest Day</label>
+            </div>
+          </div>
+
+          <label for="description"><b>Description(workouts and reps)</b></label>
+          <textarea
+            required
+            name="description"
+            id="description"
+            cols="25"
+          ></textarea>
+
+          <button type="submit" class="btn">Save</button>
+        </form>
+      </div>
+      ​ <%}%>
+      <!--------------------------------------------------------------------------------------->
+      <%if(plan.day4.length == 0){%>
+      <div class="col-lg-4">
+        <form
+          action="/stamina/workoutplan/4/<%=plan.id%>"
+          method="POST"
+          class="form-container"
+          autocomplete="off"
+        >
+          <b>Day 4</b>
+          <p>Select Muscle:</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <input type="checkbox" id="chest" name="chest" value="Chest" />
+              <label for="chest">Chest</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Back" name="Back" value="Back" />
+              <label for="Back">Back</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Legs" name="Legs" value="Legs" />
+              <label for="Legs">Legs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Triceps"
+                name="Triceps"
+                value="Triceps"
+              />
+              <label for="Triceps">Triceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Abs" name="Abs" value="Abs" />
+              <label for="Abs">Abs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Forearms"
+                name="Forearms"
+                value="forearms"
+              />
+              <label for="Forearms">Forearms</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
+              <label for="Biceps">Biceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Shoulders"
+                name="Shoulders"
+                value="shoulders"
+              />
+              <label for="Shoulders">Shoulders</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
+              <label for="cardio">cardio</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="rest" name="rest" value="Rest Day" />
+              <label for="rest">Rest Day</label>
+            </div>
+          </div>
+
+          <label for="description"><b>Description(workouts and reps)</b></label>
+          <textarea
+            required
+            name="description"
+            id="description"
+            cols="25"
+          ></textarea>
+
+          <button type="submit" class="btn">Save</button>
+        </form>
+      </div>
+      ​ <%}%>
+      <!--------------------------------------------------------------------------------------->
+      <%if(plan.day5.length == 0){%>
+      <div class="col-lg-4">
+        <form
+          action="/stamina/workoutplan/5/<%=plan.id%>"
+          method="POST"
+          class="form-container"
+          autocomplete="off"
+        >
+          <b>Day 5</b>
+          <p>Select Muscle:</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <input type="checkbox" id="chest" name="chest" value="Chest" />
+              <label for="chest">Chest</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Back" name="Back" value="Back" />
+              <label for="Back">Back</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Legs" name="Legs" value="Legs" />
+              <label for="Legs">Legs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Triceps"
+                name="Triceps"
+                value="Triceps"
+              />
+              <label for="Triceps">Triceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Abs" name="Abs" value="Abs" />
+              <label for="Abs">Abs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Forearms"
+                name="Forearms"
+                value="forearms"
+              />
+              <label for="Forearms">Forearms</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
+              <label for="Biceps">Biceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Shoulders"
+                name="Shoulders"
+                value="shoulders"
+              />
+              <label for="Shoulders">Shoulders</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
+              <label for="cardio">cardio</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="rest" name="rest" value="Rest Day" />
+              <label for="rest">Rest Day</label>
+            </div>
+          </div>
+
+          <label for="description"><b>Description(workouts and reps)</b></label>
+          <textarea
+            required
+            name="description"
+            id="description"
+            cols="25"
+          ></textarea>
+
+          <button type="submit" class="btn">Save</button>
+        </form>
+      </div>
+      ​ <%}%>
+      <!--------------------------------------------------------------------------------------->
+
+      <%if(plan.day6.length == 0){%>
+      <div class="col-lg-4">
+        <form
+          action="/stamina/workoutplan/6/<%=plan.id%>"
+          method="POST"
+          class="form-container"
+          autocomplete="off"
+        >
+          <b>Day 6</b>
+          <p>Select Muscle:</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <input type="checkbox" id="chest" name="chest" value="Chest" />
+              <label for="chest">Chest</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Back" name="Back" value="Back" />
+              <label for="Back">Back</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Legs" name="Legs" value="Legs" />
+              <label for="Legs">Legs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Triceps"
+                name="Triceps"
+                value="Triceps"
+              />
+              <label for="Triceps">Triceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Abs" name="Abs" value="Abs" />
+              <label for="Abs">Abs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Forearms"
+                name="Forearms"
+                value="forearms"
+              />
+              <label for="Forearms">Forearms</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
+              <label for="Biceps">Biceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Shoulders"
+                name="Shoulders"
+                value="shoulders"
+              />
+              <label for="Shoulders">Shoulders</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
+              <label for="cardio">cardio</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="rest" name="rest" value="Rest Day" />
+              <label for="rest">Rest Day</label>
+            </div>
+          </div>
+
+          <label for="description"><b>Description(workouts and reps)</b></label>
+          <textarea
+            required
+            name="description"
+            id="description"
+            cols="25"
+          ></textarea>
+
+          <button type="submit" class="btn">Save</button>
+        </form>
+      </div>
+
+      <%}%>
+      <!--------------------------------------------------------------------------------------->
+      <%if(plan.day7.length == 0){%>
+      <div class="col-lg-4">
+        <form
+          action="/stamina/workoutplan/7/<%=plan.id%>"
+          method="POST"
+          class="form-container"
+          autocomplete="off"
+        >
+          <b>Day 7</b>
+          <p>Select Muscle:</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <input type="checkbox" id="chest" name="chest" value="Chest" />
+              <label for="chest">Chest</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Back" name="Back" value="Back" />
+              <label for="Back">Back</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Legs" name="Legs" value="Legs" />
+              <label for="Legs">Legs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Triceps"
+                name="Triceps"
+                value="Triceps"
+              />
+              <label for="Triceps">Triceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Abs" name="Abs" value="Abs" />
+              <label for="Abs">Abs</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Forearms"
+                name="Forearms"
+                value="forearms"
+              />
+              <label for="Forearms">Forearms</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="Biceps" name="Biceps" value="biceps" />
+              <label for="Biceps">Biceps</label>
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="checkbox"
+                id="Shoulders"
+                name="Shoulders"
+                value="shoulders"
+              />
+              <label for="Shoulders">Shoulders</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="cardio" name="cardio" value="Cardio" />
+              <label for="cardio">cardio</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" id="rest" name="rest" value="Rest Day" />
+              <label for="rest">Rest Day</label>
+            </div>
+          </div>
+
+          <label for="description"><b>Description(workouts and reps)</b></label>
+          <textarea
+            required
+            name="description"
+            id="description"
+            cols="25"
+          ></textarea>
+
+          <button type="submit" class="btn">Save</button>
+        </form>
+      </div>
+
+      <%}%>
+    </div>
+    <%if(plan.day1.length > 0 && plan.day2.length > 0 && && plan.day3.length > 0
+    && plan.day4.length > 0 && plan.day5.length > 0 && plan.day6.length > 0 &&
+    plan.day7.length > 0)%> <%{%>
+    <div class="timetable">
+      <button class="accordion">Day 1</button>
+      <div class="panel row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6"></div>
+      </div>
+
+      <button class="accordion">Day 2</button>
+      <div class="panel row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6"></div>
+      </div>
+
+      <button class="accordion">Day 3</button>
+      <div class="panel row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6"></div>
+      </div>
+      <button class="accordion">Day 4</button>
+      <div class="panel row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6"></div>
+      </div>
+
+      <button class="accordion">Day 5</button>
+      <div class="panel row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6"></div>
+      </div>
+
+      <button class="accordion">Day 6</button>
+      <div class="panel row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6"></div>
+      </div>
+      <button class="accordion">Day 7</button>
+      <div class="panel row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6"></div>
+      </div>
+    </div>
+
+    <%}%>
 
     <!-- JS, Popper.js, and jQuery -->
     <script

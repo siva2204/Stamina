@@ -44,12 +44,6 @@ router.get("/workoutplans", ensureAuthenticated, async (req, res) => {
   res.render("workoutplans", { user: req.user, plans: plans });
 });
 
-//workout plan
-router.get("/workoutplan/:id", ensureAuthenticated, async (req, res) => {
-  let plan = await WorkoutPlans.findById(req.params.id);
-  res.render("plan", { plan: plan });
-});
-
 //deleteworkoutplan
 router.get(
   "/workoutplans/delete/:id",
@@ -77,6 +71,26 @@ router.post("/workoutplan", ensureAuthenticated, async (req, res) => {
   } catch (error) {
     console.log(error);
     res.redirect("/stamina/workoutplans");
+  }
+});
+// plan
+router.get("/workoutplan/:id", ensureAuthenticated, async (req, res) => {
+  let plan = await WorkoutPlans.findById(req.params.id);
+  res.render("plan", { plan: plan });
+});
+
+//day i
+router.post("/workoutplan/:day/:id", async (req, res) => {
+  var day = "day" + `${req.params.day}`;
+  let plan = await WorkoutPlans.findById(req.params.id);
+
+  try {
+    plan[day] = Object.values(req.body);
+    await plan.save();
+    res.redirect(`/stamina/workoutplan/${plan._id}`);
+  } catch (error) {
+    console.log(err);
+    res.send("something went wrong!");
   }
 });
 
