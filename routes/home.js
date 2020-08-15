@@ -54,6 +54,23 @@ router.get("/reminder", ensureAuthenticated, async (req, res) => {
   let reqwater = req.user.weight * 33;
   let user = await User.findById(req.user.id);
   let array = user.dailydrinktarget;
+
+  let waterarray = req.user.dailydrinktarget;
+  var mlvalues = [];
+  var dates = [];
+  waterarray.forEach((element, i) => {
+    mlvalues.push(element.ml);
+    dates.push(element.date);
+  });
+  var average = 0;
+
+  if (mlvalues.length > 0) {
+    const reducer = (accumulator, currentValue) =>
+      parseInt(accumulator) + parseInt(currentValue);
+    var sum = mlvalues.reduce(reducer);
+    average = sum / mlvalues.length;
+  }
+
   var mlvalue;
   if (array.length == 0) {
     mlvalue = 0;
@@ -64,10 +81,14 @@ router.get("/reminder", ensureAuthenticated, async (req, res) => {
       mlvalue = 0;
     }
   }
+
   res.render("reminder", {
     user: req.user,
     reqwater: reqwater,
     mlvalue: mlvalue,
+    mlvalues: mlvalues,
+    date: dates,
+    avg: average,
   });
 });
 
@@ -138,7 +159,7 @@ router.post("/dailydrinktarget", ensureAuthenticated, async (req, res) => {
         user.dailydrinktarget[user.dailydrinktarget.length - 1].date == date()
       ) {
         var array = user.dailydrinktarget;
-        array[array.length - 1].ml = req.body.ml;
+        array[array.length - 1].ml = req.body.input;
         User.findByIdAndUpdate(
           { _id: req.user.id },
           { dailydrinktarget: array },
@@ -156,10 +177,9 @@ router.post("/dailydrinktarget", ensureAuthenticated, async (req, res) => {
       user.dailydrinktarget.push({ ml: valueml, date: date() });
     }
     await user.save();
-    console.log(await User.findById(req.user._id));
-    console.log(valueml, req.body.input);
     res.redirect("/stamina/reminder");
   } catch (err) {
+    res.redirect("/stamina/reminder");
     console.log(err);
   }
 });
