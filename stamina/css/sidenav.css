@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap");
 
 /* The side navigation menu */
 .sidenav {
@@ -32,6 +33,7 @@
 /* The navigation menu links */
 .sidenav a {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
+
   padding: 8px 8px 8px 15px;
   text-decoration: none;
   font-size: 20px;
@@ -89,6 +91,7 @@ header {
   background-color: whitesmoke;
   position: fixed;
   top: 6px;
+  font-family: "Poppins", sans-serif;
   z-index: 51;
 }
 .nav a {

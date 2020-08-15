@@ -223,3 +223,4 @@ function restart() {
   document.getElementById("start-btn").className = "fa fa-play";
   document.getElementById("time-board").style.borderColor = "rgb(248, 90, 22)";
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------

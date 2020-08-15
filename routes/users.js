@@ -23,9 +23,9 @@ router.get("/login", ensurenotAuthenticated, (req, res) => {
 
 //register post router
 router.post("/register", (req, res) => {
-  const { name, email, password, password2 } = req.body;
+  const { name, email, weight, height, password, password2 } = req.body;
   let errors = [];
-  if (!name || !email || !password || !password2) {
+  if (!name || !email || !weight || !height || !password || !password2) {
     errors.push({ msg: "Please fill in all fields" });
   }
   if (password !== password2) {
@@ -39,7 +39,7 @@ router.post("/register", (req, res) => {
   }
 
   if (errors.length > 0) {
-    res.render("register", { errors, name, email });
+    res.render("register", { errors, name, email, weight, height });
   } else {
     //pass
     User.findOne({ email: email }).then((user) => {
@@ -47,7 +47,7 @@ router.post("/register", (req, res) => {
         errors.push({ msg: "Email is already registered" });
         res.render("register", { errors });
       } else {
-        const newUser = new User({ name, email, password });
+        const newUser = new User({ name, email, password, weight, height });
         //hash password
         bcrypt.genSalt(10, (err, salt) =>
           bcrypt.hash(newUser.password, salt, (err, hash) => {

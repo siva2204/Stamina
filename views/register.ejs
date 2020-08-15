@@ -27,11 +27,19 @@
     <label for="email"><b>Email</b></label>
     <input type="email" placeholder="Enter Email" name="email" id="email" required value="<%= typeof email != 'undefined' ? email : '' %>">
 
+    <label for="weight"><b>Enter Weight</b></label>
+    <input type="number" placeholder="in kgs" name="weight" id="weight"  required value="<%= typeof weight != 'undefined' ? weight : '' %>" />
+
+    <label for="name"><b>Enter Height</b></label>
+    <input type="number" placeholder="in cms" name="height" id="height"  required value="<%= typeof height != 'undefined' ? height : '' %>" />
+
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" id="psw" required>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="password2" id="psw-repeat" required>
+
+   
 
 
     <button type="submit" class="registerbtn">Register</button>
