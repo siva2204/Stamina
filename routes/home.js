@@ -31,9 +31,44 @@ router.get("/report", ensureAuthenticated, async (req, res) => {
   }
 });
 
+//bmi report
+router.post("/report/bmi", ensureAuthenticated, async (req, res) => {
+  try {
+    let bmireport = bmicalculator(req.body.weight, req.body.height);
+    let user = await User.findById(req.user.id);
+
+    user.BMI.push({
+      bmirange: bmireport[0],
+      bmi: bmireport[1].toFixed(2),
+      currentdate: date(),
+    });
+    await user.save();
+    res.redirect("/stamina/report");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 //reminder page
 router.get("/reminder", ensureAuthenticated, async (req, res) => {
-  res.render("reminder", { user: req.user });
+  let reqwater = req.user.weight * 33;
+  let user = await User.findById(req.user.id);
+  let array = user.dailydrinktarget;
+  var mlvalue;
+  if (array.length == 0) {
+    mlvalue = 0;
+  } else {
+    if (array[array.length - 1].date == date()) {
+      mlvalue = array[array.length - 1].ml;
+    } else {
+      mlvalue = 0;
+    }
+  }
+  res.render("reminder", {
+    user: req.user,
+    reqwater: reqwater,
+    mlvalue: mlvalue,
+  });
 });
 
 //workoutplans
@@ -94,21 +129,38 @@ router.post("/workoutplan/:day/:id", async (req, res) => {
   }
 });
 
-//bmi report
-router.post("/report/bmi", ensureAuthenticated, async (req, res) => {
+router.post("/dailydrinktarget", ensureAuthenticated, async (req, res) => {
+  var valueml = req.body.input;
   try {
-    let bmireport = bmicalculator(req.body.weight, req.body.height);
-    let user = await User.findById(req.user.id);
-
-    user.BMI.push({
-      bmirange: bmireport[0],
-      bmi: bmireport[1].toFixed(2),
-      currentdate: date(),
-    });
+    const user = await User.findById(req.user._id);
+    if (user.dailydrinktarget.length !== 0) {
+      if (
+        user.dailydrinktarget[user.dailydrinktarget.length - 1].date == date()
+      ) {
+        var array = user.dailydrinktarget;
+        array[array.length - 1].ml = req.body.ml;
+        User.findByIdAndUpdate(
+          { _id: req.user.id },
+          { dailydrinktarget: array },
+          { upsert: true },
+          (err) => {
+            if (err) {
+              console.log(err);
+            }
+          }
+        );
+      } else {
+        user.dailydrinktarget.push({ ml: valueml, date: date() });
+      }
+    } else {
+      user.dailydrinktarget.push({ ml: valueml, date: date() });
+    }
     await user.save();
-    res.redirect("/stamina/report");
-  } catch (error) {
-    console.log(error);
+    console.log(await User.findById(req.user._id));
+    console.log(valueml, req.body.input);
+    res.redirect("/stamina/reminder");
+  } catch (err) {
+    console.log(err);
   }
 });
 

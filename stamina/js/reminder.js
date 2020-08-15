@@ -224,3 +224,86 @@ function restart() {
   document.getElementById("time-board").style.borderColor = "rgb(248, 90, 22)";
 }
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementById("closebtn");
+
+// When the user clicks the button, open the modal
+btn.onclick = function () {
+  modal.style.display = "block";
+};
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function plusml() {
+  var ml = parseInt(document.getElementById("ml").innerHTML);
+  ml += 50;
+  document.getElementById("ml").innerHTML = ml;
+}
+
+function minusml() {
+  var ml = parseInt(document.getElementById("ml").innerHTML);
+  if (ml > 100) {
+    ml -= 50;
+  }
+
+  document.getElementById("ml").innerHTML = ml;
+}
+
+function addml() {
+  var total = parseInt(document.getElementById("total-water").innerHTML);
+  var add = parseInt(document.getElementById("ml").innerHTML);
+  total += add;
+  document.getElementById("total-water").innerHTML = total;
+  post("/stamina/dailydrinktarget", total);
+}
+
+function post(path, params, method = "post") {
+  // The rest of this code assumes you are not using a library.
+  // It can be made less wordy if you use one.
+  const form = document.createElement("form");
+  form.method = method;
+  form.action = path;
+
+  const hiddenField = document.createElement("input");
+  hiddenField.type = "hidden";
+  hiddenField.name = "input";
+  hiddenField.value = params;
+
+  form.appendChild(hiddenField);
+
+  document.body.appendChild(form);
+  form.submit();
+}
+
+const date = () => {
+  var today = new Date();
+  var dd = today.getDate();
+
+  var mm = today.getMonth() + 1;
+  var yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = "0" + dd;
+  }
+
+  if (mm < 10) {
+    mm = "0" + mm;
+  }
+
+  today = dd + "-" + mm + "-" + yyyy;
+  return today;
+};

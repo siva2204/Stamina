@@ -32,14 +32,82 @@
   </head>
   <body>
     <%- include("./partials/sidenav")%>
+
     <div class="water-tracker">
       <h1 class="text-center"><b>D</b>aily <b>W</b>ater <b>T</b>racker</h1>
       <div id="water-board">
-        
+        <div id="board">
+          <strong id="total-water"><%=mlvalue%></strong><b>/</b
+          ><strong><%=reqwater%></strong>
+          <p><small>in ml</small></p>
+        </div>
       </div>
-      
+      <p id="display">
+        your daily requirement of water is <strong><%=reqwater%> ml</strong>
+      </p>
+
+      <div class="water-intake row">
+        <div id="icons" class="col-sm-4">
+          <img
+            src="../img/glass-of-water.png"
+            width="100"
+            height="100"
+            alt="add"
+          />
+
+          <p id="display">
+            <span class="change-water-input" onclick="plusml()">+</span
+            ><strong id="ml">100</strong> <strong> ml</strong
+            ><span class="change-water-input" onclick="minusml()">-</span>
+          </p>
+        </div>
+
+        <div id="icons" onclick="addml();" class="col-sm-4">
+          <img
+            src="../img/bottle-of-water.png"
+            width="100"
+            height="100"
+            alt="add"
+          />
+          <p id="display">Click here to update daily drink target</p>
+        </div>
+        <div id="icons" class="col-sm-4">
+          <img
+            id="myBtn"
+            src="../img/tips.png"
+            width="100"
+            height="100"
+            alt="add"
+          />
+          <p id="display">Tips!</p>
+        </div>
+      </div>
+
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <p style="float: right; margin: 0; padding: 0;">
+            <strong style="padding: 8px;" id="closebtn">&times;</strong>
+          </p>
+          <strong class="text-center">Tips!</strong>
+          <div id="modal-p">
+            <p>
+              Drink your glass of water slowly with some small sips.
+            </p>
+            <p>
+              Hold the water in mouth for a while before swallowing.
+            </p>
+            <p>Do not drink cold water or water with ice.</p>
+            <p>Do not drink water immediately after eating.</p>
+            <p>
+              Always drink water before urinating and do not drink immediately
+              after urinating.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
+
     <div class="timer">
       <h1><b>W</b>orkout <b>T</b>imer</h1>
       <div id="time-board">
@@ -78,6 +146,7 @@
         </div>
       </div>
     </div>
+    <% var ml = mlvalue%>
     <!-- JS, Popper.js, and jQuery -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -98,5 +167,6 @@
     ></script>
     <script src="../js/sidenav.js"></script>
     <script src="../js/reminder.js"></script>
+    <script></script>
   </body>
 </html>

@@ -21,6 +21,10 @@ const UserSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  dailydrinktarget: {
+    type: Array,
+    default: [],
+  },
   weight: {
     type: Number,
     required: true,
