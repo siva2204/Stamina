@@ -1,6 +1,20 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
+var fs = require("fs");
+var path = require("path");
+var multer = require("multer");
+
+var storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + "-" + Date.now());
+  },
+});
+
+var upload = multer({ storage: storage });
 
 const router = express.Router();
 
@@ -93,6 +107,19 @@ router.get("/logout", (req, res) => {
 //profile
 router.get("/profile", ensureAuthenticated, (req, res) => {
   res.render("profile", { user: req.user });
+});
+
+//profile pic update
+router.post("/dp", upload.single("image"), async (req, res) => {
+  let user = await User.findById(req.user.id);
+  user.img = {
+    data: fs.readFileSync(
+      path.join(__dirname + "/uploads/" + req.file.filename)
+    ),
+    contentType: "image/png",
+  };
+  await user.save();
+  res.redirect("/stamina/users/profile");
 });
 //email validation function block
 function ValidateEmail(mail) {
