@@ -184,6 +184,11 @@ router.post("/dailydrinktarget", ensureAuthenticated, async (req, res) => {
   }
 });
 
+//geoloaction
+router.get("/geolocation", ensureAuthenticated, (req, res) => {
+  res.render("geoloaction");
+});
+
 module.exports = router;
 
 //bmi calculator function
