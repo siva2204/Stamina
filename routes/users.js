@@ -90,6 +90,10 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
+//profile
+router.get("/profile", ensureAuthenticated, (req, res) => {
+  res.render("profile", { user: req.user });
+});
 //email validation function block
 function ValidateEmail(mail) {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {

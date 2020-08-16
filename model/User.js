@@ -25,6 +25,10 @@ const UserSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  cardio: {
+    type: Array,
+    default: [],
+  },
   weight: {
     type: Number,
     required: true,
@@ -32,6 +36,10 @@ const UserSchema = new mongoose.Schema({
   height: {
     type: Number,
     required: true,
+  },
+  img: {
+    data: Buffer,
+    contentType: String,
   },
 });
 

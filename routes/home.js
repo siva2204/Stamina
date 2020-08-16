@@ -186,9 +186,22 @@ router.post("/dailydrinktarget", ensureAuthenticated, async (req, res) => {
 
 //geoloaction
 router.get("/geolocation", ensureAuthenticated, (req, res) => {
-  res.render("geoloaction");
+  res.render("geoloaction", { history: req.user.cardio });
 });
 
+router.post("/geolocationdetails", ensureAuthenticated, async (req, res) => {
+  var array = req.body.input.split(",");
+  array.push(new Date().toUTCString());
+  var user = await User.findById(req.user._id);
+  try {
+    user.cardio.push(array);
+    await user.save();
+    res.redirect("/stamina/geolocation");
+  } catch (error) {
+    console.log(error);
+    res.redirect("/stamina/geolocation");
+  }
+});
 module.exports = router;
 
 //bmi calculator function

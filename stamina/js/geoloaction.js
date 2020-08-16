@@ -186,9 +186,9 @@ const start = () => {
     options
   );
 };
-
+var total;
 const stop = () => {
-  var total = 0;
+  total = 0;
   navigator.geolocation.clearWatch(watchID);
   rendermap(coordinates);
 
@@ -199,6 +199,9 @@ const stop = () => {
     "distance"
   ).innerHTML = `distance travelled <strong>${total}</strong> meters`;
   window.clearInterval(interval);
+  document.getElementById("save").style.display = "block";
+  document.getElementById("start").style.display = "none";
+  document.getElementById("stop").style.display = "none";
 };
 
 function distance(coords1, coords2) {
@@ -250,4 +253,42 @@ function stopwatch() {
 
   document.getElementById("t").innerHTML =
     display_minutes + ":" + display_seconds;
+}
+
+function myfunction() {
+  post("/stamina/geolocationdetails", [
+    total,
+    document.getElementById("t").innerHTML,
+  ]);
+}
+
+function post(path, params, method = "post") {
+  const form = document.createElement("form");
+  form.method = method;
+  form.action = path;
+
+  const hiddenField = document.createElement("input");
+  hiddenField.type = "hidden";
+  hiddenField.name = "input";
+  hiddenField.value = params;
+
+  form.appendChild(hiddenField);
+
+  document.body.appendChild(form);
+  form.submit();
+}
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
 }

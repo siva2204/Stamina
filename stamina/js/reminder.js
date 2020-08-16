@@ -273,8 +273,6 @@ function addml() {
 }
 
 function post(path, params, method = "post") {
-  // The rest of this code assumes you are not using a library.
-  // It can be made less wordy if you use one.
   const form = document.createElement("form");
   form.method = method;
   form.action = path;
