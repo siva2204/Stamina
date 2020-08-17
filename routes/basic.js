@@ -16,7 +16,7 @@ router.post("/subscribe", async (req, res) => {
 
   const payload = JSON.stringify({ title: `Hello!` });
 
-  webpush.sendNotification(subscription, payload);
+  //webpush.sendNotification(subscription, payload);
 });
 
 module.exports = router;

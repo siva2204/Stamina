@@ -6,6 +6,26 @@ const passport = require("passport");
 const path = require("path");
 const webpush = require("web-push");
 var cors = require("cors");
+var fs = require("fs");
+var multer = require("multer");
+const User = require("./model/User");
+
+const {
+  ensureAuthenticated,
+  ensurenotAuthenticated,
+} = require("./passport/auth");
+
+var storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + "-" + Date.now());
+  },
+});
+
+var upload = multer({ storage: storage });
+exports.upload = upload;
 
 const app = express();
 
@@ -72,6 +92,27 @@ app.use((req, res, next) => {
   next();
 });
 
+//profile pic update
+app.post(
+  "/stamina/users/dp",
+  ensureAuthenticated,
+  upload.single("image"),
+  async (req, res, next) => {
+    try {
+      let user = await User.findById(req.user._id);
+      user.img = {
+        data: fs.readFileSync(
+          path.join(__dirname + "/uploads/" + req.file.filename)
+        ),
+        contentType: "image/png",
+      };
+      await user.save();
+      res.redirect("/stamina/users/profile");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 //routes middleware
 app.use("/", require("./routes/basic"));
 app.use("/stamina/users", require("./routes/users"));
@@ -81,3 +122,4 @@ app.use("/stamina/gymworkout", require("./routes/gymworkout"));
 app.listen(port, () => {
   console.log(`server up and running ${port}`);
 });
+console.log(__dirname);
