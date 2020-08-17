@@ -202,6 +202,11 @@ router.post("/geolocationdetails", ensureAuthenticated, async (req, res) => {
     res.redirect("/stamina/geolocation");
   }
 });
+
+//deit plan
+router.get("/deitplan", ensureAuthenticated, (req, res) => {
+  res.render("deitplan", { user: req.user });
+});
 module.exports = router;
 
 //bmi calculator function
