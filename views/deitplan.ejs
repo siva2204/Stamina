@@ -24,13 +24,58 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../css/deitplan.css" />
     <link rel="stylesheet" href="../css/sidenav.css" />
     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon" />
     <title>STAMINA</title>
   </head>
   <body>
     <%- include("./partials/sidenav")%>
-    <h1>deitplan</h1>
+    <div class="top-container">
+      <h3>Know your meal!</h3>
+      <form id="form">
+        <textarea
+          id="ingredeints"
+          placeholder="1 cup rice, 1 large apple"
+          required
+        ></textarea>
+        <button type="submit" id="save">Know!</button>
+      </form>
+    </div>
+    <div id="result">
+      <p id="heading"></p>
+      <h4>Calories <strong id="calories"></strong></h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Label</th>
+            <th>quantity(%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>proteins</td>
+            <td id="protein"></td>
+          </tr>
+          <tr>
+            <td>Carbs</td>
+            <td id="carbs"></td>
+          </tr>
+          <tr>
+            <td>calcium</td>
+            <td id="calcium"></td>
+          </tr>
+          <tr>
+            <td>fibre</td>
+            <td id="fibre"></td>
+          </tr>
+          <tr>
+            <td>fats</td>
+            <td id="fat"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <!-- JS, Popper.js, and jQuery -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -50,5 +95,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="../js/sidenav.js"></script>
+    <script src="../js/deitplan.js"></script>
   </body>
 </html>
