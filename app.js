@@ -40,8 +40,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //web push vapid keys
-const publicVapidKey = process.env.publicVapidKey;
-const privateVapidKey = process.env.privateVapidKey;
+const publicVapidKey =
+  "BGqOywqEj0rWpAQ9JUktHVO6juTzinRFe1i2TrmiHqtIDCPpaPsntHIzTMtFDlkAuUhAbd605sG2xqVWTeGnKfo";
+const privateVapidKey = "ESozUbCOlIEEoHvKLdJKqEuaCS-haWljIOWienLM-mY";
 
 webpush.setVapidDetails(
   "mailto:example@yourdomain.org",
@@ -122,4 +123,3 @@ app.use("/stamina/gymworkout", require("./routes/gymworkout"));
 app.listen(port, () => {
   console.log(`server up and running ${port}`);
 });
-console.log(__dirname);
