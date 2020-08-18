@@ -360,7 +360,7 @@ header a:hover {
   .topnav.responsive {
     position: relative;
     position: fixed;
-    top: 24px;
+    top: 20px;
     width: 100%;
     overflow: hidden;
     z-index: 99;
